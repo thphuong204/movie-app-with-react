@@ -3,7 +3,7 @@ import { grey, orange, red } from '@mui/material/colors';
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import FilmThumbnailsListCarousel from './components/FilmThumbnailsListCarousel';
+import FilmGenresResults from './components/FilmGenresResults';
 
 const theme = createTheme({
   palette: {
@@ -43,7 +43,7 @@ const theme = createTheme({
 function App() {
   return (
     <div className="App">
-      <FilmThumbnailsListCarousel/>
+      <FilmGenresResults/>
     </div>
   );
 }
