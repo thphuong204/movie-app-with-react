@@ -1,38 +1,43 @@
+
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.filmThumbnailsListCarousel{
+  background-color: #616161;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.filmThumbnailsList{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content:center;
 }
 
-.App-link {
-  color: #61dafb;
+.filmThumbnailCard {
+  background-color:#616161;
+  z-index: 2;
+  position: relative;
+  margin: 0 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.filmThumbnailTitle{
+    color: darkblue;
+    font-weight: bold;
+    margin-bottom: 1;
+    margin-top: 1;
+    text-align: center;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.filmThumbnailDescription{
+    color: darkblue;
+    font-size: 12px;
+    margin-top: 1;
+    margin-bottom: 1;
+    text-align: justify;
+    height: 72px;
+    overflow: auto
 }
