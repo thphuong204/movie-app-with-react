@@ -4,6 +4,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import FilmGenresResults from './components/FilmGenresResults';
+import FilmAppBar from './components/FilmAppBar';
 
 const theme = createTheme({
   palette: {
@@ -43,6 +44,7 @@ const theme = createTheme({
 function App() {
   return (
     <div className="App">
+      <FilmAppBar/>
       <FilmGenresResults/>
     </div>
   );
