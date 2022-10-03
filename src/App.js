@@ -5,6 +5,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import FilmGenresResults from './components/FilmGenresResults';
 import FilmAppBar from './components/FilmAppBar';
+import LogIn from './pages/LogIn';
+import FilmDetails from './pages/FilmDetails';
 
 const theme = createTheme({
   palette: {
@@ -44,8 +46,12 @@ const theme = createTheme({
 function App() {
   return (
     <div className="App">
-      <FilmAppBar/>
-      <FilmGenresResults/>
+      <div>
+      {/* <LogIn/> */}
+      {/* <FilmAppBar/>
+      <FilmGenresResults/> */}
+      <FilmDetails/>
+      </div>
     </div>
   );
 }
