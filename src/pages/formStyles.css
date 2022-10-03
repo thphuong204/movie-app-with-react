@@ -1,28 +1,21 @@
-
-
 body {
-    background: #0e101c;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-      "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-      sans-serif;
-  }
-  
-  #formLogIn {
-    max-width: 500px;
-    margin: 50px auto;
-  }
+  font-family: "Segoe UI", sans-serif;
+}
 
-  #formLogIn form {
-    margin: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content:center;
-  }
-  
-  #formLogIn .mb-3{
+#formLogIn {
+  max-width: 500px;
+  margin: 50px auto;
+}
+
+#formLogIn form {
+  margin: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+}
+
+#formLogIn .mb-3 {
   width: 100%;
   text-align: left;
-  }
-
-  
+}
