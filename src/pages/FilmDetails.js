@@ -1,51 +1,52 @@
-import { AddBoxTwoTone } from '@mui/icons-material'
-import { Box, CardMedia,Typography,Divider, Grid} from '@mui/material'
+
 import React from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import FilmAppBar from '../components/FilmAppBar';
 import './../App.css';
+import { Image } from 'react-bootstrap';
 
 function FilmDetails() {
   return (
     <div id="filmDetails" style={{backgroundColor:"grey"}}>
-        <Container fluid>
-            <Container fluid
-            className="imageCover"
-            
-            sx={{ width: 151 }}
-            
-            >
-              <Container fluid 
-              component="img"
-              image="./../../public/logo192.png"
-              alt="img">
-
-              </Container >
-              <Typography>Title</Typography>
+        <div>
+          <FilmAppBar/>
+        </div>
+        <Container fluid className="filmDetailsBody">
+            <Container fluid className="filmDetailsBody_header px-0">
+              <Image className="filmDetailsBody_image"
+              image="./../../public/logo512.png"
+              alt="img of film">
+              </Image >
+              <Container fluid className="filmDetailsBody_title">Title</Container>
             </Container>
-            <Divider sx={{borderColor:"success.dark"}}/>
-            <Container className="filmDetailContent">
-              <Row>
-                <Col xs={5} lg={4} className="description"  >
-                  <Container component="div" variant="h5">
-                    Title
+            <Container fluid className="filmDetailsBody_description">
+              <Row className="w-100">
+                <Col className="description"  >
+                  <Container className="description-type">
+                    Movie/Series
                   </Container>
-                  <Divider sx={{borderColor:"success.dark"}}/>
-                  <Container variant="subtitle1" color="text.secondary" component="div">
-                    Description
+                  <Container className="description-genre" >
+                    Genre: Action, Dramma, Commedy
                   </Container>
-                  <Divider sx={{borderColor:"success.dark"}}/>
-                  <Container variant="subtitle1" color="text.secondary" component="div">
-                    Film type
+                  <Container className="description-cast" >
+                    Cast:
+                  </Container>
+                  <Container className="description-content">
+                    Description:
                   </Container>
                 </Col>
-              
                 
-                <Col xs={6} lg={7} className="season"   >
-                    <Container component="div" variant="h5">
-                      Season
+                <Col  className="episode-guide">
+                    <Container className="episode-guide-title">Episode guide:</Container> 
+                    <Container className="duration">Duration: 1hour 30 minutes</Container> 
+                    <Container className="season-name">Season 1
+                      <ul>
+                        <li className="episode-name">Ep1</li>
+                      </ul>
                     </Container>
-                    <Divider sx={{borderColor:"success.dark"}}/>
-                    <Container variant="subtitle1" color="text.secondary" component="div">
+                    <Container className="trailer">
                       Trailer
                     </Container>
                 </Col>

@@ -48,17 +48,58 @@
   height:100vh;
 }
 
-#filmDetails .filmDetailContent{
-  width:100%;
+#filmDetails .filmDetailsBody {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0px; 
+}
+#filmDetails .filmDetailsBody .filmDetailsBody_header{
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid;
+}
+#filmDetails .filmDetailsBody .filmDetailsBody_header .filmDetailsBody_image{
+  width: 100% !important;
+  border: 1px solid;
+  min-height:300px;
+  color:black
+}
+
+#filmDetails .filmDetailsBody .filmDetailsBody_header .filmDetailsBody_title {
+  width: 100% !important;
+  border: 1px solid;
+  padding: 0px; 
+  margin: 0px;
+}
+
+#filmDetails .filmDetailsBody .filmDetailsBody_description{
+  padding: 0px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-#filmDetails .filmDetailContent .description,
-#filmDetails .filmDetailContent .season
+#filmDetails .filmDetailsBody_description .description,
+#filmDetails .filmDetailsBody_description .episode-guide
 {
+  border:1px solid;
+  padding: 0px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 } 
+
+.description-type, .description-genre, .description-cast, .description-content{
+  border: 1px solid;
+  text-align: left;
+  min-height: 40px;
+  margin: 10px 0;
+}
+
+.episode-guide-title, .season-name, .episode-name, .trailer{
+  text-align: left;
+}
+
+.season-name{
+font-weight: bold;
+}
