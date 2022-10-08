@@ -1,7 +1,7 @@
-const axios = require('axios');
+import axios from "axios";
 
-API_V3_KEY = '68fd99303e96482d9eaff74537d24001';
-API_V3_BASE_URL = 'https://api.themoviedb.org/3'
+const API_V3_KEY = '68fd99303e96482d9eaff74537d24001';
+const API_V3_BASE_URL = 'https://api.themoviedb.org/3'
 
 const request = axios.create({
     baseURL: API_V3_BASE_URL,
@@ -11,17 +11,15 @@ const request = axios.create({
     }
 });
 
-const discover = async (page, pageSize, searchQuery) => {
+export const v3Discover = async (page, pageSize, searchQuery) => {
     console.log('discovering movie')
     const response = await request.get('discover/movie');
     console.log(response.data);
 }
 
-const movieDetails = async (movieId) => {
+export const v3GetMovieDetails = async (movieId) => {
     console.log('getting movie details')
     const response = await request.get('movie/760161');
     console.log(response.data);
+    return response.data;
 }
-
-module.exports = discover;
-module.exports = movieDetails;

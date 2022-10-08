@@ -9,6 +9,7 @@ import LogIn from './pages/LogIn';
 import FilmDetails from './pages/FilmDetails';
 import VideoPlayer from './pages/VideoPlayer';
 import AllFilmsList from './pages/HomePage';
+import { TestApiComponent } from './components/TestApiComponent';
 
 const theme = createTheme({
   palette: {
@@ -41,7 +42,7 @@ const theme = createTheme({
         },
       },
     },
-    
+
   },
 })
 
@@ -49,12 +50,13 @@ function App() {
   return (
     <div className="App">
       <div>
-      <LogIn/>
+        <TestApiComponent />
+        {/* <LogIn/>
       <FilmAppBar/>
       <FilmGenresResults/>
       <FilmDetails/>
-      <VideoPlayer/>
-      {/* <AllFilmsList/> */}
+      <VideoPlayer/> */}
+        {/* <AllFilmsList/> */}
       </div>
     </div>
   );
