@@ -8,6 +8,7 @@ import FilmAppBar from './components/FilmAppBar';
 import LogIn from './pages/LogIn';
 import FilmDetails from './pages/FilmDetails';
 import VideoPlayer from './pages/VideoPlayer';
+import AllFilmsList from './pages/HomePage';
 
 const theme = createTheme({
   palette: {
@@ -48,11 +49,12 @@ function App() {
   return (
     <div className="App">
       <div>
-      {/* <LogIn/> */}
-      {/* <FilmAppBar/>
-      <FilmGenresResults/> */}
-      {/* <FilmDetails/> */}
+      <LogIn/>
+      <FilmAppBar/>
+      <FilmGenresResults/>
+      <FilmDetails/>
       <VideoPlayer/>
+      {/* <AllFilmsList/> */}
       </div>
     </div>
   );

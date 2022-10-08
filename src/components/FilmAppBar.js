@@ -15,6 +15,8 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import "./../App.css";
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -168,12 +170,23 @@ function FilmAppBar() {
             <MenuIcon />
           </IconButton>
           <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ display: { xs: 'none', sm: 'block' } }}
+            className="nav-item"
+            sx={{ display: { xs: 'none', sm: 'flex' } }}
           >
-            MUI
+            <span className="nav-text">Home</span>
+          </Typography>
+          <Typography
+            className="nav-item"
+            sx={{ display: { xs: 'none', sm: 'flex' } }}
+          >
+            <FavoriteIcon className="nav-text"/> 
+            <span className="nav-text">Favorite</span>
+          </Typography>
+          <Typography
+            className="nav-item"
+            sx={{ display: { xs: 'none', sm: 'flex' } }}
+          >
+            <span className="nav-text">Genres</span>
           </Typography>
           <Search>
             <SearchIconWrapper>
