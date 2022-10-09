@@ -12,6 +12,7 @@ import AllFilmsList from './pages/HomePage';
 import { TestApiComponent } from './components/TestApiComponent';
 import { apiV3Discover, apiV3GetMovieDetails } from './apis/tmdb';
 
+
 const theme = createTheme({
   palette: {
     primary: {
@@ -57,7 +58,7 @@ function App() {
       //useEffect warning error when putting async before useEffect arrow function => fixed
       async function setMovieArr() {
           const movieArr = await apiV3Discover();
-          setMovieArrays(movieArr);
+          setMovieArrays(movieArr.results);
       }
       setMovieArr();
     }, [])

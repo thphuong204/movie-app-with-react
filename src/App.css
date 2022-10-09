@@ -21,9 +21,22 @@
  margin: 0 2px;
 }
 
+#allFilmsList{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+#film-genres-results{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
 .filmThumbnailsListCarousel{
   background-color: #616161;
   margin: 50px 0;
+  overflow: hidden;
 }
 
 .filmThumbnailsList{
@@ -35,7 +48,7 @@
   background-color:#616161;
   z-index: 2;
   position: relative;
-  margin: 0 10px;
+  margin: 0 20px;
 }
 
 .filmThumbnailTitle{

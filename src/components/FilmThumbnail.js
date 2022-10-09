@@ -2,7 +2,7 @@ import React from 'react';
 import {Card, CardContent, CardMedia,  Divider, Typography} from '@mui/material';
 import './../App.css';
 
-function FilmThumbnail() {
+function FilmThumbnail({movieObject}) {
     return (
         <Card 
             className="filmThumbnailCard" 
@@ -16,7 +16,7 @@ function FilmThumbnail() {
         sx={{
             height:{xs:"80px",md:"200px"}
         }}
-        image="./../../public/logo192.png"
+        image={`https://image.tmdb.org/t/p/original/${movieObject?.poster_path}`}
         alt="green iguana"
       />
             <CardContent
@@ -35,15 +35,14 @@ function FilmThumbnail() {
                         fontSize:{xs:"10px",md:"20px"}
                     }}
                 >
-                    title
+                   {movieObject?.title}
                 </Typography>
                 <Divider variant="middle" color="white" sx={{ margin: {sx:"1px",md:1 }}} />
                 
                 <Typography 
                 className="filmThumbnailDescription" 
-                display={{xs:"none"}}
-                height={{xs:"0px"}}>
-                    description
+                >
+                    {movieObject?.overview}
                 </Typography>
             </CardContent>
         </Card>
