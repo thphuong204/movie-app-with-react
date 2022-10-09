@@ -4,13 +4,13 @@ import FilmThumbnailsListCarousel from './FilmThumbnailsListCarousel';
 function FilmGenresResults() {
   return (
     <div id="film-genres-results" className='content'>
-      <div>
+      <div className="filmThumbnailsListCarousel">
         <FilmThumbnailsListCarousel/>
       </div>
-      <div>
+      <div className="filmThumbnailsListCarousel">
         <FilmThumbnailsListCarousel/>
       </div>
-      <div>
+      <div className="filmThumbnailsListCarousel">
         <FilmThumbnailsListCarousel/>
       </div>
     </div>
