@@ -1,13 +1,27 @@
-### v3 API , GET /movie/{movie_id}
-GET https://api.themoviedb.org/3/movie/760161?api_key=68fd99303e96482d9eaff74537d24001
+### v3 API , movieDetail (append to response= videos, images, credits to save api limit) , GET /movie/{movie_id}
+GET https://api.themoviedb.org/3/movie/532639?api_key=68fd99303e96482d9eaff74537d24001&append_to_response=videos,images,credits
 
 
-### 
+### Discover array of movies
 GET https://api.themoviedb.org/3/discover/movie?api_key=68fd99303e96482d9eaff74537d24001
 
 
 ### https://developers.themoviedb.org/3/discover/movie-discover
 ### Note: URL encode the search param value https://www.urlencoder.org/
-GET https://api.themoviedb.org/3/discover/movie?api_key=68fd99303e96482d9eaff74537d24001&page=1&with_keywords=bullet
+GET https://api.themoviedb.org/3/discover/movie?api_key=68fd99303e96482d9eaff74537d24001&page=3
 
 ### Study more APIs at https://developers.themoviedb.org/3/getting-started/introduction
+
+### Get video: GET /movie/{movie_id}/videos
+GET https://api.themoviedb.org/3/movie/642885/videos?api_key=68fd99303e96482d9eaff74537d24001&language=en-US
+
+
+### Get configuration:
+GET https://api.themoviedb.org/3/configuration?api_key=68fd99303e96482d9eaff74537d24001
+
+### Get image (poster, backdrop):
+GET https://image.tmdb.org/t/p/original/kAVRgw7GgK1CfYEJq8ME6EvRIgU.jpg
+
+
+### Get genre list:
+GET https://api.themoviedb.org/3/genre/movie/list?api_key=68fd99303e96482d9eaff74537d24001&language=en-US
