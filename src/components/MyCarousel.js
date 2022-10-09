@@ -1,8 +1,11 @@
-import Carousel from "react-multi-carousel";
+import Carousel,{ useContext } from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import { FilmContext } from "../App";
 import FilmThumbnail from "./FilmThumbnail";
 
+
 export const MyCarousel = () => {
+    
 
     const responsive = {
         superLargeDesktop: {
