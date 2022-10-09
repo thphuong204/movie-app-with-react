@@ -157,7 +157,7 @@ function FilmAppBar() {
   );
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1 }} id="app-bar">
       <AppBar position="static">
         <Toolbar>
           <IconButton
