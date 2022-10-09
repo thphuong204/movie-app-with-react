@@ -1,6 +1,6 @@
 import { createTheme } from '@mui/material';
 import { grey, orange, red } from '@mui/material/colors';
-import React from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import FilmGenresResults from './components/FilmGenresResults';
@@ -10,6 +10,7 @@ import FilmDetails from './pages/FilmDetails';
 import VideoPlayer from './pages/VideoPlayer';
 import AllFilmsList from './pages/HomePage';
 import { TestApiComponent } from './components/TestApiComponent';
+import { apiV3Discover, apiV3GetMovieDetails } from './apis/tmdb';
 
 const theme = createTheme({
   palette: {
@@ -46,20 +47,46 @@ const theme = createTheme({
   },
 })
 
+const FilmContext = createContext();
+
 function App() {
+  const [movieDetails, setMovieDetails] = useState(null);
+  const [movieArrays, setMovieArrays] = useState(null);
+
+    useEffect(() => {
+      //useEffect warning error when putting async before useEffect arrow function => fixed
+      async function setMovieArr() {
+          const movieArr = await apiV3Discover();
+          setMovieArrays(movieArr);
+      }
+      setMovieArr();
+    }, [])
+
+    // useEffect(() => {
+    //     //useEffect warning error when putting async before useEffect arrow function => fixed
+    //     async function setMovie() {
+    //         const movie = await apiV3GetMovieDetails();
+    //         setMovieDetails(movie);
+    //     }
+    //     setMovie();
+    // }, [])
+
   return (
     <div className="App">
       <div>
-        <TestApiComponent />
-        {/* <LogIn/>
-      <FilmAppBar/>
-      <FilmGenresResults/>
-      <FilmDetails/>
-      <VideoPlayer/> */}
-        {/* <AllFilmsList/> */}
+        <FilmContext.Provider value={{movieDetails,setMovieDetails,movieArrays,setMovieArrays}}>
+          <TestApiComponent />
+            {/* <LogIn/> */}
+          <FilmAppBar/>
+          <FilmGenresResults/>
+          <FilmDetails/>
+          <VideoPlayer/>
+          <AllFilmsList/>
+        </FilmContext.Provider>
       </div>
     </div>
   );
 }
 
 export default App;
+export {FilmContext};
