@@ -25,6 +25,46 @@
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+  position: relative
+}
+
+.slick-slider {
+  width: 100% !important;
+  display: flex;
+  flex-wrap: nowrap;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+
+.slick-arrow {
+  display: flex;
+  position: relative;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  font-size: 30px !important;
+  margin: 0 20px;
+}
+
+.slick-list{
+  /* width: 100% !important; */
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.slick-track {
+  width: 100% !important;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.slick-slide{
+  width:300px !important;
+  margin: 0 20px;
 }
 
 #film-genres-results{
@@ -40,15 +80,17 @@
 }
 
 .filmThumbnailsList{
-  display: flex;
+  width: 100%;
+  display: block;
   justify-content:center;
+  padding: 20px;
 }
 
 .filmThumbnailCard {
   background-color:#616161;
   z-index: 2;
   position: relative;
-  margin: 0 20px;
+  margin: 0 20px !important;
 }
 
 .filmThumbnailTitle{
