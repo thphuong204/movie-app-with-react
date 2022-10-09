@@ -11,6 +11,7 @@ import VideoPlayer from './pages/VideoPlayer';
 import AllFilmsList from './pages/HomePage';
 import { TestApiComponent } from './components/TestApiComponent';
 import { apiV3Discover, apiV3GetMovieDetails } from './apis/tmdb';
+import { MyCarousel } from './components/MyCarousel';
 
 
 const theme = createTheme({
@@ -54,35 +55,37 @@ function App() {
   const [movieDetails, setMovieDetails] = useState(null);
   const [movieArrays, setMovieArrays] = useState(null);
 
-    useEffect(() => {
-      //useEffect warning error when putting async before useEffect arrow function => fixed
-      async function setMovieArr() {
-          const movieArr = await apiV3Discover();
-          setMovieArrays(movieArr.results);
-      }
-      setMovieArr();
-    }, [])
+  useEffect(() => {
+    //useEffect warning error when putting async before useEffect arrow function => fixed
+    async function setMovieArr() {
+      const movieArr = await apiV3Discover();
+      setMovieArrays(movieArr.results);
+    }
+    setMovieArr();
+  }, [])
 
-    // useEffect(() => {
-    //     //useEffect warning error when putting async before useEffect arrow function => fixed
-    //     async function setMovie() {
-    //         const movie = await apiV3GetMovieDetails();
-    //         setMovieDetails(movie);
-    //     }
-    //     setMovie();
-    // }, [])
+  // useEffect(() => {
+  //     //useEffect warning error when putting async before useEffect arrow function => fixed
+  //     async function setMovie() {
+  //         const movie = await apiV3GetMovieDetails();
+  //         setMovieDetails(movie);
+  //     }
+  //     setMovie();
+  // }, [])
+
 
   return (
     <div className="App">
       <div>
-        <FilmContext.Provider value={{movieDetails,setMovieDetails,movieArrays,setMovieArrays}}>
-          <TestApiComponent />
-            {/* <LogIn/> */}
-          <FilmAppBar/>
-          <FilmGenresResults/>
-          <FilmDetails/>
-          <VideoPlayer/>
-          <AllFilmsList/>
+        <FilmContext.Provider value={{ movieDetails, setMovieDetails, movieArrays, setMovieArrays }}>
+          {/* <MyCarousel /> */}
+          {/* <TestApiComponent /> */}
+          {/* <LogIn/> */}
+          {/* <FilmAppBar /> */}
+          <FilmGenresResults />
+          {/* <FilmDetails /> */}
+          {/* <VideoPlayer /> */}
+          <AllFilmsList />
         </FilmContext.Provider>
       </div>
     </div>
@@ -90,4 +93,4 @@ function App() {
 }
 
 export default App;
-export {FilmContext};
+export { FilmContext };
