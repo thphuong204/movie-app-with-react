@@ -16,7 +16,11 @@ function VideoPlayer() {
         <Container className="video-body" fluid>
             <Row>
                 <Col className="video-screen">
-                    <div className="video-content">Video</div>
+                    <div className="video-content">Video
+                    <iframe width="420" height="315"
+                    src="https://www.youtube.com/embed/4f5JqA2-GfQ?autoplay=1&mute=1">
+                    </iframe>
+                    </div>
                     <div className="video-button">
                         <SkipPreviousIcon className="button prevNext-button"/>
                         <PauseIcon className="button play-button"/>
