@@ -14,9 +14,7 @@ const AllFilmsList = () => {
     
     return (
         <div id="allFilmsList"> 
-                <div>
                     <FilmThumbnailsListCarousel/>
-                </div>
         </div>
     )
 }
