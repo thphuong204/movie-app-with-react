@@ -7,9 +7,9 @@ import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
 import PlayCircleIcon from '@mui/icons-material/PlayCircle';
 import PauseIcon from '@mui/icons-material/Pause';
 
-function VideoPlayer() {
+function VideoPlayerPage() {
   return (
-    <div id="video-player">VideoPlayer
+    <div id="video-player">VideoPlayerPage
         <div>
           <FilmAppBar/>
         </div>
@@ -64,4 +64,4 @@ function VideoPlayer() {
   )
 }
 
-export default VideoPlayer
+export default VideoPlayerPage

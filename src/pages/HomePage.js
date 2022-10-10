@@ -12,7 +12,7 @@ const onLearnMoreClick= () => {
 }
 
 
-const AllFilmsList = () => {
+const HomePage = () => {
     
     return (
         <div id="allFilmsList"> 
@@ -29,4 +29,4 @@ const AllFilmsList = () => {
     )
 }
 
-export default AllFilmsList;
+export default HomePage;

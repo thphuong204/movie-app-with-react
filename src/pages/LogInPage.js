@@ -10,7 +10,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
-function LogIn() {
+function LogInPage() {
     const {
         register,
         handleSubmit,
@@ -81,5 +81,5 @@ function LogIn() {
   );
 }
 
-export default LogIn
+export default LogInPage
 

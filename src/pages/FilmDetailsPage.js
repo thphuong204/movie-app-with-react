@@ -7,7 +7,7 @@ import FilmAppBar from '../components/FilmAppBar';
 import './../App.css';
 import { Image } from 'react-bootstrap';
 
-function FilmDetails() {
+function FilmDetailsPage() {
   return (
     <div id="filmDetails" style={{backgroundColor:"grey"}}>
         <div>
@@ -57,4 +57,4 @@ function FilmDetails() {
   )
 }
 
-export default FilmDetails
+export default FilmDetailsPage

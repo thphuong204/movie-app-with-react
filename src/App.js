@@ -5,13 +5,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import FilmGenresResults from './components/FilmGenresResults';
 import FilmAppBar from './components/FilmAppBar';
-import LogIn from './pages/LogIn';
-import FilmDetails from './pages/FilmDetails';
-import VideoPlayer from './pages/VideoPlayer';
-import AllFilmsList from './pages/HomePage';
+import LogInPage from './pages/LogInPage';
+import FilmDetailsPage from './pages/FilmDetailsPage';
+import VideoPlayerPage from './pages/VideoPlayerPage';
+import HomePage from './pages/HomePage';
 import { TestApiComponent } from './components/TestApiComponent';
 import { apiV3Discover, apiV3GetMovieDetails } from './apis/tmdb';
-import { MyCarousel } from './components/MyCarousel';
 
 
 const theme = createTheme({
@@ -78,14 +77,12 @@ function App() {
     <div className="App">
       <div>
         <FilmContext.Provider value={{ movieDetails, setMovieDetails, movieArrays, setMovieArrays }}>
-          {/* <MyCarousel /> */}
           {/* <TestApiComponent /> */}
-          {/* <LogIn/> */}
-          {/* <FilmAppBar /> */}
+          {/* <LogInPage/> */}
           {/* <FilmGenresResults /> */}
-          {/* <FilmDetails /> */}
-          {/* <VideoPlayer /> */}
-          <AllFilmsList />
+          <FilmDetailsPage />
+          {/* <VideoPlayerPage /> */}
+          {/* <HomePage /> */}
         </FilmContext.Provider>
       </div>
     </div>
