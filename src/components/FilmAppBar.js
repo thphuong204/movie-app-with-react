@@ -106,25 +106,34 @@ function FilmAppBar() {
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
-  const handleProfileMenuOpen = (event) => {
+  const handleProfileAccountOpen = (event) => {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleMobileMenuClose = () => {
+  const handleMobileMoreClose = () => {
     setMobileMoreAnchorEl(null);
   };
 
-  const handleMenuClose = () => {
+  const handleMoreClose = () => {
     setAnchorEl(null);
-    handleMobileMenuClose();
+    handleMobileMoreClose();
   };
 
-  const handleMobileMenuOpen = (event) => {
+  const handleMobileMoreOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
+  const [anchorMenu, setAnchorMenu] = React.useState(null);
+  const open = Boolean(anchorMenu);
+  const handleClick = (event) => {
+    setAnchorMenu(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorMenu(null);
+  };
+
   const menuId = 'primary-search-account-menu';
-  const renderMenu = (
+  const renderMore = (
     <Menu
       anchorEl={anchorEl}
       anchorOrigin={{
@@ -138,10 +147,10 @@ function FilmAppBar() {
         horizontal: 'right',
       }}
       open={isMenuOpen}
-      onClose={handleMenuClose}
+      onClose={handleMoreClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem onClick={handleMoreClose}>Profile</MenuItem>
+      <MenuItem onClick={handleMoreClose}>My account</MenuItem>
     </Menu>
   );
 
@@ -160,7 +169,7 @@ function FilmAppBar() {
         horizontal: 'right',
       }}
       open={isMobileMenuOpen}
-      onClose={handleMobileMenuClose}
+      onClose={handleMobileMoreClose}
     >
       <MenuItem>
         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
@@ -182,7 +191,7 @@ function FilmAppBar() {
         </IconButton>
         <p>Notifications</p>
       </MenuItem>
-      <MenuItem onClick={handleProfileMenuOpen}>
+      <MenuItem onClick={handleProfileAccountOpen}>
         <IconButton
           size="large"
           aria-label="account of current user"
@@ -202,15 +211,35 @@ function FilmAppBar() {
     <Box sx={{ flexGrow: 1 }} id="app-bar">
       <AppBar position="static">
         <Toolbar>
-          <IconButton
+          <IconButton 
+            sx={{ display: { xs: 'flex', md: 'none' } }}
+            id="basic-button"
             size="large"
             edge="start"
             color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
+            aria-controls={open ? 'basic-menu' : undefined}
+            aria-haspopup="true"
+            aria-expanded={open ? 'true' : undefined}
+            aria-label="show more"
+            onClick={handleClick}
           >
             <MenuIcon />
           </IconButton>
+
+          <Menu 
+            id="basic-menu"
+            anchorEl={anchorMenu}
+            open={open}
+            onClose={handleClose}
+            MenuListProps={{
+              'aria-labelledby': 'basic-button',
+            }}
+          >
+              <MenuItem onClick={handleClose}>Home</MenuItem>
+              <MenuItem onClick={handleClose}>Favorite</MenuItem>
+              <MenuItem onClick={handleClose}>Genres</MenuItem>
+          </Menu>
+
           <Typography
             className="nav-item"
             sx={{ display: { xs: 'none', sm: 'flex' } }}
@@ -230,6 +259,8 @@ function FilmAppBar() {
           >
             <span className="nav-text">Genres</span>
           </Typography>
+
+
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
@@ -261,7 +292,7 @@ function FilmAppBar() {
               aria-label="account of current user"
               aria-controls={menuId}
               aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
+              onClick={handleProfileAccountOpen}
               color="inherit"
             >
               <AccountCircle />
@@ -273,7 +304,7 @@ function FilmAppBar() {
               aria-label="show more"
               aria-controls={mobileMenuId}
               aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
+              onClick={handleMobileMoreOpen}
               color="inherit"
             >
               <MoreIcon />
@@ -282,7 +313,7 @@ function FilmAppBar() {
         </Toolbar>
       </AppBar>
       {renderMobileMenu}
-      {renderMenu}
+      {renderMore}
     </Box>
     </ThemeProvider>
   );
