@@ -82,7 +82,7 @@ function App() {
           {/* <TestApiComponent /> */}
           {/* <LogIn/> */}
           {/* <FilmAppBar /> */}
-          <FilmGenresResults />
+          {/* <FilmGenresResults /> */}
           {/* <FilmDetails /> */}
           {/* <VideoPlayer /> */}
           <AllFilmsList />
