@@ -1,5 +1,5 @@
 
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -16,12 +16,6 @@ function FilmDetailsPage() {
   const movieGenresOriginalArr = movieDetails?.genres;
   const productionCompaniesOriginalArr = movieDetails?.production_companies;
   const castOriginalArr = movieDetails?.credits?.cast
-  let movieGenres = "";
-  let casts = "";
-
-  // movieGenresOriginalArr?.map((genreObject) => {
-  //   movieGenres += `${genreObject?.name} `
-  // })
 
 
   return (
@@ -44,7 +38,10 @@ function FilmDetailsPage() {
                     {`Production Companies:`}
                   </Container>
                   <Container className="description-genre" >
-                   {` Genre: `}
+                   <span>Genres: </span> 
+                   {movieGenresOriginalArr?.map((genreObject,i)=> {
+                    return (<span key={i}>{`${genreObject?.name} `}</span>)
+                   })}
                   </Container>
                   <Container className="description-cast" >
                     Cast:
