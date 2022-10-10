@@ -62,14 +62,14 @@ function App() {
     setMovieArr();
   }, [])
 
-  // useEffect(() => {
-  //     //useEffect warning error when putting async before useEffect arrow function => fixed
-  //     async function setMovie() {
-  //         const movie = await apiV3GetMovieDetails();
-  //         setMovieDetails(movie);
-  //     }
-  //     setMovie();
-  // }, [])
+  useEffect(() => {
+      //useEffect warning error when putting async before useEffect arrow function => fixed
+      async function setMovie() {
+          const movie = await apiV3GetMovieDetails();
+          setMovieDetails(movie);
+      }
+      setMovie();
+  }, [])
 
 
   return (
@@ -78,10 +78,10 @@ function App() {
         <FilmContext.Provider value={{ movieDetails, setMovieDetails, movieArrays, setMovieArrays }}>
           {/* <TestApiComponent /> */}
           {/* <LogInPage/> DONE */}
-          <FilmByGenresPage />
-          {/* <FilmDetailsPage /> */}
+          {/* <FilmByGenresPage /> */}
+          <FilmDetailsPage />
           {/* <VideoPlayerPage /> */}
-          {/* <HomePage />  DONE*/}
+          {/* <HomePage /> */}
         </FilmContext.Provider>
       </div>
     </div>

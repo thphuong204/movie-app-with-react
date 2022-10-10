@@ -1,13 +1,29 @@
 
-import React from 'react';
+import React, { useContext } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Image  from 'react-bootstrap/Image';
 import FilmAppBar from '../components/FilmAppBar';
 import './../App.css';
-import { Image } from 'react-bootstrap';
+import { FilmContext } from '../App';
 
 function FilmDetailsPage() {
+  const {movieDetails} = useContext(FilmContext);
+  let movieTitle = movieDetails?.title || "";
+  const movieImage = movieDetails?.images?.posters?.[0]?.file_path || null;
+  const movieOverview = movieDetails?.overview || "";
+  const movieGenresOriginalArr = movieDetails?.genres;
+  const productionCompaniesOriginalArr = movieDetails?.production_companies;
+  const castOriginalArr = movieDetails?.credits?.cast
+  let movieGenres = "";
+  let casts = "";
+
+  // movieGenresOriginalArr?.map((genreObject) => {
+  //   movieGenres += `${genreObject?.name} `
+  // })
+
+
   return (
     <div id="filmDetails" style={{backgroundColor:"grey"}}>
         <div>
@@ -19,22 +35,22 @@ function FilmDetailsPage() {
               image="./../../public/logo512.png"
               alt="img of film">
               </Image >
-              <Container fluid className="filmDetailsBody_title">Title</Container>
+              <Container fluid className="filmDetailsBody_title">{movieTitle}</Container>
             </Container>
             <Container fluid className="filmDetailsBody_description">
               <Row className="w-100">
                 <Col className="description"  >
                   <Container className="description-type">
-                    Movie/Series
+                    {`Production Companies:`}
                   </Container>
                   <Container className="description-genre" >
-                    Genre: Action, Dramma, Commedy
+                   {` Genre: `}
                   </Container>
                   <Container className="description-cast" >
                     Cast:
                   </Container>
                   <Container className="description-content">
-                    Description:
+                    {`Description: ${movieOverview}`}
                   </Container>
                 </Col>
                 
