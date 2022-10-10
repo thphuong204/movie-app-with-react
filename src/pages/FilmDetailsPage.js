@@ -76,7 +76,7 @@ function FilmDetailsPage() {
                     <Container className="episode-guide-title">Episode guide:</Container> 
                     <Container className="season-name">
                       <ul>
-                        {videoOriginalArr?.slice(0,1)?.map((videoObject,i)=> {
+                        {videoOriginalArr?.slice(0,2)?.map((videoObject,i)=> {
                           return (
                             <li className="episode-name" key={i}>
                               <a href="">
