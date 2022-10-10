@@ -36,9 +36,21 @@ body{
 #allFilmsList{
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   width: 100%;
   position: relative;
   background-color: #616161;
+}
+
+#allFilmsList .welcome-text{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  color: #FFA500;
+  font-family: 'Gill Sans', 'Trebuchet MS';
+  font-size: max(20px,2vw);
+  margin: 30px 10px 30px 10px;
 }
 
 .slick-slider {
@@ -248,4 +260,8 @@ font-weight: bold;
 #video-player .accordion-item{
   background-color: black;
   color: white;
+}
+
+.wrapper {
+  width:100%;
 }

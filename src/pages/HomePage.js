@@ -16,7 +16,14 @@ const AllFilmsList = () => {
     
     return (
         <div id="allFilmsList"> 
-                <FilmAppBar/>
+                <div className="wrapper">
+                    <FilmAppBar/>
+                </div>
+                
+                <div className="welcome-text"> Welcome to our website movie. 
+                    <br/>
+                    We really appreciate our customers and hope you have great experience with us.
+                </div>
                 <FilmThumbnailsListCarousel/>
         </div>
     )
