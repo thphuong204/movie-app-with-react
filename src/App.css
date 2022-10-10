@@ -97,7 +97,6 @@ body{
 }
 
 
-
 #film-genres-results{
   display: flex;
   flex-wrap: wrap;
@@ -151,12 +150,14 @@ body{
 #filmDetails {
   width:100%;
   height:100vh;
+  margin-bottom: 20px;
 }
 
 #filmDetails .filmDetailsBody {
   display: flex;
   flex-wrap: wrap;
   padding: 0px; 
+  color:#fff !important;
 }
 
 #filmDetails .filmDetailsBody .filmDetailsBody_header{
@@ -164,17 +165,21 @@ body{
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  margin-bottom: 50px;
 }
 #filmDetails .filmDetailsBody .filmDetailsBody_header .filmDetailsBody_image{
   width: 100% !important;
   height:300px;
 }
 
-#filmDetails .filmDetailsBody .filmDetailsBody_header .filmDetailsBody_title {
+#filmDetails .filmDetailsBody .filmDetailsBody_title {
   width: 100% !important;
-  padding: 5px; 
+  padding: 10px; 
   margin: 0px;
   font-weight: bold;
+  font-size: max(14px,1.5vw);
+  background-color: #212121;
+  border-bottom: 3px solid;;
 }
 
 #filmDetails .filmDetailsBody .filmDetailsBody_description{
@@ -182,23 +187,54 @@ body{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  background-color: #212121 ;
 }
 
-#filmDetails .filmDetailsBody_description .description,
-#filmDetails .filmDetailsBody_description .episode-guide
+#filmDetails .filmDetailsBody_description .description
 {
-  border:1px solid;
+  border-right: 3px solid white !important;
   padding: 0px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  font-size: max(12px,1.2vw);
 } 
 
-#filmDetails  .description-type, .description-genre, .description-cast, .description-content{
-  border: 1px solid;
+#filmDetails .filmDetailsBody_description .episode-guide 
+{
+  padding: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content:flex-start;
+  font-size: max(12px,1.2vw);
+} 
+
+#filmDetails .filmDetailsBody_description .episode-guide .episode-guide-title{
+  font-weight: bold;
+  margin: 10px 0px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  text-align: justify;
+}
+
+#filmDetails .filmDetailsBody_description .episode-guide .season-name{
+  margin: 10px 0px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  text-align: justify;
+}
+
+#filmDetails  .description-companies, .description-genre, .description-cast, .description-content{
   text-align: left;
   min-height: 40px;
   margin: 10px 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  text-align: justify;
 }
 
 #filmDetails  .episode-guide-title, .season-name, .episode-name, .trailer{

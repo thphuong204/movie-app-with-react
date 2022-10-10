@@ -33,35 +33,42 @@ function FilmDetailsPage() {
                 </Image >
               </Col>
               </Row>
-              <Container fluid className="filmDetailsBody_title">{movieTitle}</Container>
             </Container>
+            <Container fluid className="filmDetailsBody_title">{movieTitle}</Container>
             <Container fluid className="filmDetailsBody_description">
               <Row className="w-100">
                 <Col className="description"  >
-                  <Container className="description-type">
-                  <span>Production Companies: </span>
+                  <Container className="description-companies">
+                  <div style={{fontWeight:"bold", width:"100%"}}>Production Companies: </div>
+                  <div>
                   {productionCompaniesOriginalArr?.map((productionCompObject,i)=> {
                     return (
                       <span key={i}>{`${productionCompObject?.name}, `}</span>
                     )
                   })}
+                  </div>
                   </Container>
                   <Container className="description-genre" >
-                   <span>Genres: </span> 
+                   <div style={{fontWeight:"bold",width:"100%"}}>Genres: </div> 
+                   <div>
                    {movieGenresOriginalArr?.map((genreObject,i)=> {
                     return (<span key={i}>{`${genreObject?.name}, `}</span>)
                    })}
+                   </div>
                   </Container>
                   <Container className="description-cast" >
-                  <span>Casts: </span> 
+                  <div style={{fontWeight:"bold",width:"100%"}}>Casts: </div> 
+                  <div>
                   {castOriginalArr?.slice(0,5)?.map((castObject,i)=>{
                     return (
                       <span key={i}>{`${castObject?.name}, `}</span>
                     )
                   })}
+                  </div>
                   </Container>
                   <Container className="description-content">
-                    {`Description: ${movieOverview}`}
+                    <div style={{fontWeight:"bold",width:"100%"}}>Description: </div>
+                    <div>{` ${movieOverview}`}</div>
                   </Container>
                 </Col>
                 
