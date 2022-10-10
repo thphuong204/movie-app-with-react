@@ -1,5 +1,5 @@
 import React from 'react';
-import { styled, alpha } from '@mui/material/styles';
+import { styled, alpha, createTheme, ThemeProvider } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -17,13 +17,54 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import "./../App.css";
+import { grey, orange, red } from '@mui/material/colors';
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: grey[800],
+      light: grey[700],
+      dark: grey[900],
+    },
+    secondary: {
+      main: red[400],
+      light: red[300],
+      dark: red[800],
+    },
+    warning: {
+      main: orange[400]
+    },
+    background: {
+      default: grey[900],
+    },
+    spacing: { xs: 2, sm: 3, md: 5 },
+  },
+  components: {
+    // Name of the component
+    MuiInputBase: {
+      styleOverrides: {
+        root: {
+          height: "30px",
+        }
+      }
+    },
+    MuiAppBar: {
+      styleOverrides: {
+        root: {
+          backgroundColor:"#212121"
+        }
+      }
+    }
+  },
+})
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
-    backgroundColor: alpha(theme.palette.common.white, 0.15),
+    color: theme.palette.common.white,
+    backgroundColor: alpha(theme.palette.common.black, 0.35),
     '&:hover': {
-      backgroundColor: alpha(theme.palette.common.white, 0.25),
+      backgroundColor: alpha(theme.palette.common.black, 0.6),
     },
     marginRight: theme.spacing(2),
     marginLeft: 0,
@@ -157,6 +198,7 @@ function FilmAppBar() {
   );
 
   return (
+    <ThemeProvider theme={theme}>
     <Box sx={{ flexGrow: 1 }} id="app-bar">
       <AppBar position="static">
         <Toolbar>
@@ -242,6 +284,7 @@ function FilmAppBar() {
       {renderMobileMenu}
       {renderMenu}
     </Box>
+    </ThemeProvider>
   );
 }
 
