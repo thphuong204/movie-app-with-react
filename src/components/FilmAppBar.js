@@ -242,20 +242,20 @@ function FilmAppBar() {
 
           <Typography
             className="nav-item"
-            sx={{ display: { xs: 'none', sm: 'flex' } }}
+            sx={{ display: { xs: 'none', md: 'flex' } }}
           >
             <span className="nav-text">Home</span>
           </Typography>
           <Typography
             className="nav-item"
-            sx={{ display: { xs: 'none', sm: 'flex' } }}
+            sx={{ display: { xs: 'none', md: 'flex' } }}
           >
             <FavoriteIcon className="nav-text"/> 
             <span className="nav-text">Favorite</span>
           </Typography>
           <Typography
             className="nav-item"
-            sx={{ display: { xs: 'none', sm: 'flex' } }}
+            sx={{ display: { xs: 'none', md: 'flex' } }}
           >
             <span className="nav-text">Genres</span>
           </Typography>
