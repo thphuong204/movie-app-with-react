@@ -247,34 +247,27 @@ font-weight: bold;
 
 #video-player .video-body{
   min-height: 400px;
-  border: 1px solid #fff;
   margin: 20px 0;
+  display: flex;
+  align-content: center;
+  justify-content: center;
 }
 
 #video-player .video-screen{
   min-height:400px;
   padding:0;
-  border: 1px solid #fff;
+  display: flex;
+  align-content: center;
+  justify-content: center;
 }
 
 #video-player  .video-content{
-  min-height: 300px;
+  min-height: 400px;
   margin:0px;
   padding: 0px;
-  border: 1px solid #fff;
-}
-
-#video-player  .video-button{
-  min-height:100px;
   display: flex;
-  flex-wrap: wrap;
+  align-content: center;
   justify-content: center;
-  align-items: center;
-}
-#video-player .button{
-  font-size: 50px;
-  margin: 0 10px;
-  color:#fff;
 }
 
 #video-player .selection-group{

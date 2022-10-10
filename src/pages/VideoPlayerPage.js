@@ -9,23 +9,17 @@ import PauseIcon from '@mui/icons-material/Pause';
 
 function VideoPlayerPage() {
   return (
-    <div id="video-player">VideoPlayerPage
+    <div id="video-player">
         <div>
           <FilmAppBar/>
         </div>
         <Container className="video-body" fluid>
             <Row>
                 <Col className="video-screen">
-                    <div className="video-content">Video
-                    <iframe width="420" height="315"
+                    <div className="video-content">
+                    <iframe width="420" height="400"
                     src="https://www.youtube.com/embed/4f5JqA2-GfQ?autoplay=1&mute=1">
                     </iframe>
-                    </div>
-                    <div className="video-button">
-                        <SkipPreviousIcon className="button prevNext-button"/>
-                        <PauseIcon className="button play-button"/>
-                        <PlayCircleIcon className="button play-button"/>
-                        <SkipNextIcon className="button prevNext-button"/>
                     </div>
                 </Col>
             </Row>

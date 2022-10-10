@@ -77,10 +77,10 @@ function App() {
       <div>
         <FilmContext.Provider value={{ movieDetails, setMovieDetails, movieArrays, setMovieArrays }}>
           {/* <TestApiComponent /> */}
-          {/* <LogInPage/> DONE */}
+          {/* <LogInPage/> */}
           {/* <FilmByGenresPage /> */}
-          <FilmDetailsPage />
-          {/* <VideoPlayerPage /> */}
+          {/* <FilmDetailsPage /> */}
+          <VideoPlayerPage />
           {/* <HomePage /> */}
         </FilmContext.Provider>
       </div>
