@@ -3,12 +3,11 @@ import { grey, orange, red } from '@mui/material/colors';
 import React, { createContext, useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import FilmGenresResults from './components/FilmGenresResults';
-import FilmAppBar from './components/FilmAppBar';
 import LogInPage from './pages/LogInPage';
 import FilmDetailsPage from './pages/FilmDetailsPage';
 import VideoPlayerPage from './pages/VideoPlayerPage';
 import HomePage from './pages/HomePage';
+import FilmByGenresPage from './pages/FilmByGenresPage';
 import { TestApiComponent } from './components/TestApiComponent';
 import { apiV3Discover, apiV3GetMovieDetails } from './apis/tmdb';
 
@@ -78,11 +77,11 @@ function App() {
       <div>
         <FilmContext.Provider value={{ movieDetails, setMovieDetails, movieArrays, setMovieArrays }}>
           {/* <TestApiComponent /> */}
-          {/* <LogInPage/> */}
-          {/* <FilmGenresResults /> */}
-          <FilmDetailsPage />
+          {/* <LogInPage/> DONE */}
+          <FilmByGenresPage />
+          {/* <FilmDetailsPage /> */}
           {/* <VideoPlayerPage /> */}
-          {/* <HomePage /> */}
+          {/* <HomePage />  DONE*/}
         </FilmContext.Provider>
       </div>
     </div>
