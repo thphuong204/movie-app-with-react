@@ -25,3 +25,6 @@ GET https://image.tmdb.org/t/p/original/kAVRgw7GgK1CfYEJq8ME6EvRIgU.jpg
 
 ### Get genre list:
 GET https://api.themoviedb.org/3/genre/movie/list?api_key=68fd99303e96482d9eaff74537d24001&language=en-US
+
+### Get movie by genre:
+GET https://api.themoviedb.org/3/discover/movie?api_key=68fd99303e96482d9eaff74537d24001&with_genres=28
