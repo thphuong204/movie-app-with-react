@@ -9,7 +9,7 @@ import FilmByGenresPage from './pages/FilmByGenresPage';
 import { TestApiComponent } from './components/TestApiComponent';
 import { apiV3Discover, apiV3DiscoverAction, apiV3DiscoverCommedy, apiV3DiscoverDramma, apiV3GetMovieDetails } from './apis/tmdb';
 
-import { BrowserRouter } from "react-router-dom";
+import { Outlet} from "react-router-dom";
 
 const FilmContext = createContext();
 
@@ -57,36 +57,33 @@ function App() {
   }, [])
 
 
-  // useEffect(() => {
-  //     //useEffect warning error when putting async before useEffect arrow function => fixed
-  //     async function setMovie() {
-  //         const movie = await apiV3GetMovieDetails();
-  //         setMovieDetails(movie);
-  //     }
-  //     setMovie();
-  // }, [])
+  useEffect(() => {
+      //useEffect warning error when putting async before useEffect arrow function => fixed
+      async function setMovie() {
+          const movie = await apiV3GetMovieDetails();
+          setMovieDetails(movie);
+      }
+      setMovie();
+  }, [])
 
 
   return (
+    
     <div className="App">
-      <div>
-        <FilmContext.Provider 
-        value={{ 
-          movieDetails, setMovieDetails, 
-          movieArrays, setMovieArrays,
-          movieActionArrays,setActionArrays,
-          movieCommedyArrays,setCommedyArrays,
-          movieDrammaArrays,setDrammaArrays }}
-        >
-          {/* <TestApiComponent /> */}
-          {/* <LogInPage/> */}
-          <FilmByGenresPage />
-          {/* <FilmDetailsPage /> */}
-          {/* <VideoPlayerPage /> */}
-          {/* <HomePage /> */}
-        </FilmContext.Provider>
-      </div>
-    </div>
+            <div>
+            <FilmContext.Provider 
+              value={{ 
+                movieDetails, setMovieDetails, 
+                movieArrays, setMovieArrays,
+                movieActionArrays,setActionArrays,
+                movieCommedyArrays,setCommedyArrays,
+                movieDrammaArrays,setDrammaArrays }}
+              >
+                <Outlet />
+              </FilmContext.Provider>
+            </div>
+          </div>
+   
   );
 }
 
