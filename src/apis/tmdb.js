@@ -60,14 +60,14 @@ export const apiV3DiscoverAction = async (page, pageSize, searchQuery) => {
 }
 
 export const apiV3DiscoverCommedy = async (page, pageSize, searchQuery) => {
-    console.log('discovering action movie')
+    console.log('discovering commedy movie')
     const response = await requestCommedy.get('discover/movie');
     console.log(response.data);
     return response.data;
 }
 
 export const apiV3DiscoverDramma = async (page, pageSize, searchQuery) => {
-    console.log('discovering action movie')
+    console.log('discovering dramma movie')
     const response = await requestDramma.get('discover/movie');
     console.log(response.data);
     return response.data;
