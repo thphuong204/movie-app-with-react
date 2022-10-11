@@ -15,68 +15,60 @@ const request = axios.create({
 
 const requestAction = axios.create({
     baseURL: API_V3_BASE_URL,
-    timeout: 1000,
+    timeout: 2000,
     params: {
         api_key: API_V3_KEY,
         page: 2,
-        append_to_response:"videos,images,credits",
         with_genres: 28
     }
 });
 
 const requestDramma = axios.create({
     baseURL: API_V3_BASE_URL,
-    timeout: 1000,
+    timeout: 2000,
     params: {
         api_key: API_V3_KEY,
         page: 2,
-        append_to_response:"videos,images,credits",
         with_genres: 18
     }
 });
 const requestCommedy = axios.create({
     baseURL: API_V3_BASE_URL,
-    timeout: 1000,
+    timeout: 2000,
     params: {
         api_key: API_V3_KEY,
         page: 2,
-        append_to_response:"videos,images,credits",
         with_genres: 35
     }
 });
 
 export const apiV3Discover = async (page, pageSize, searchQuery) => {
-    console.log('discovering movie')
     const response = await request.get('discover/movie');
     console.log(response.data);
     return response.data;
 }
 
 export const apiV3DiscoverAction = async (page, pageSize, searchQuery) => {
-    console.log('discovering action movie')
     const response = await requestAction.get('discover/movie');
-    console.log(response.data);
+    console.log("action list",response.data);
     return response.data;
 }
 
 export const apiV3DiscoverCommedy = async (page, pageSize, searchQuery) => {
-    console.log('discovering commedy movie')
     const response = await requestCommedy.get('discover/movie');
-    console.log(response.data);
+    console.log("commedy list",response.data);
     return response.data;
 }
 
 export const apiV3DiscoverDramma = async (page, pageSize, searchQuery) => {
-    console.log('discovering dramma movie')
     const response = await requestDramma.get('discover/movie');
-    console.log(response.data);
+    console.log("dramma list",response.data);
     return response.data;
 }
 
 export const apiV3GetMovieDetails = async (movieId) => {
-    console.log('getting movie details')
     const response = await request.get('movie/760161');
-    console.log(response.data);
+    console.log("detail",response.data);
     return response.data;
 }
 
