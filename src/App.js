@@ -7,7 +7,7 @@ import VideoPlayerPage from './pages/VideoPlayerPage';
 import HomePage from './pages/HomePage';
 import FilmByGenresPage from './pages/FilmByGenresPage';
 import { TestApiComponent } from './components/TestApiComponent';
-import { apiV3Discover, apiV3DiscoverAction, apiV3DiscoverCommedy, apiV3DiscoverDramma, apiV3GetMovieDetails } from './apis/tmdb';
+import {apiV3GetToken,apiV3CreateSession, apiV3Discover, apiV3DiscoverAction, apiV3DiscoverCommedy, apiV3DiscoverDramma, apiV3GetMovieDetails, getRequestToken } from './apis/tmdb';
 
 import { Outlet} from "react-router-dom";
 
@@ -19,7 +19,8 @@ function App() {
   const [movieActionArrays,setActionArrays] = useState(null);
   const [movieCommedyArrays,setCommedyArrays] = useState(null);
   const [movieDrammaArrays,setDrammaArrays] = useState(null);
-  
+  const [tmdbToken,setTmdbToken] = useState(null);
+
   useEffect(() => {
     //useEffect warning error when putting async before useEffect arrow function => fixed
     async function setMovieArr() {
@@ -66,6 +67,29 @@ function App() {
       setMovie();
   }, [])
 
+
+  // useEffect(() => {
+  //   async function askPermission(){
+  //     if(!tmdbToken) {
+  //       let tmdbTokenTmp = await getRequestToken();
+  //       setTmdbToken(tmdbTokenTmp);
+  //       const askUserPermission =  () => {
+  //         window.location = `https://www.themoviedb.org/authenticate/${tmdbToken}?redirect_to=http://localhost:3000/home`;
+  //       } 
+  //       askUserPermission();
+  //       apiV3CreateSession() 
+  //     }
+  //   }
+  //   askPermission();
+  // },[])
+
+  let tmdbTokenTmp ;
+  async function askPermission(){
+      tmdbTokenTmp = await getRequestToken();
+      console.log("tmdbTokenTmp",tmdbTokenTmp)
+  }
+  
+  askPermission();
 
   return (
     
