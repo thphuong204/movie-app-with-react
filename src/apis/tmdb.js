@@ -83,7 +83,7 @@ export const apiV3GetToken = async (movieId) => {
     return data["request_token"];
 }
 
-export const apiV3CreateSession = async (movieId) => {
+export const apiV3CreateSession = async () => {
     const response = await requestToken.post('authentication/session/new');
     console.log("session",response.data);
     return response.data;
