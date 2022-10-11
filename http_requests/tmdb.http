@@ -37,4 +37,4 @@ GET https://api.themoviedb.org/3/authentication/token/new?api_key=68fd99303e9648
 GET https://api.themoviedb.org/3/authentication/session/new?api_key=68fd99303e96482d9eaff74537d24001
 
 ### Search movie
-GET https://api.themoviedb.org/3/search/movie?api_key=68fd99303e96482d9eaff74537d24001&page=2
+GET https://api.themoviedb.org/3/search/movie?api_key=68fd99303e96482d9eaff74537d24001&query=seachQuery
