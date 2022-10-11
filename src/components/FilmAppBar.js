@@ -18,6 +18,7 @@ import MoreIcon from '@mui/icons-material/MoreVert';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import "./../App.css";
 import { grey, orange, red } from '@mui/material/colors';
+import { useNavigate } from 'react-router-dom';
 
 const theme = createTheme({
   palette: {
@@ -206,6 +207,7 @@ function FilmAppBar() {
     </Menu>
   );
 
+  const navigate = useNavigate();
   return (
     <ThemeProvider theme={theme}>
     <Box sx={{ flexGrow: 1 }} id="app-bar">
@@ -243,6 +245,7 @@ function FilmAppBar() {
           <Typography
             className="nav-item"
             sx={{ display: { xs: 'none', md: 'flex' } }}
+            onClick={() =>{navigate('/home')}}
           >
             <span className="nav-text">Home</span>
           </Typography>
@@ -256,6 +259,7 @@ function FilmAppBar() {
           <Typography
             className="nav-item"
             sx={{ display: { xs: 'none', md: 'flex' } }}
+            onClick={() =>{navigate('/genres')}}
           >
             <span className="nav-text">Genres</span>
           </Typography>
