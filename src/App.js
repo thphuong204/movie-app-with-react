@@ -81,10 +81,10 @@ function App() {
         >
           {/* <TestApiComponent /> */}
           {/* <LogInPage/> */}
-          {/* <FilmByGenresPage /> */}
+          <FilmByGenresPage />
           {/* <FilmDetailsPage /> */}
           {/* <VideoPlayerPage /> */}
-          <HomePage />
+          {/* <HomePage /> */}
         </FilmContext.Provider>
       </div>
     </div>

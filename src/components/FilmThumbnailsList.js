@@ -17,7 +17,7 @@ function FilmThumbnailsList({movieArrays}) {
   return (
     <div className="filmThumbnailsList">
        <Slider {...settings}>
-          {movieArrays?.map((movieObject)=>{
+          {movieArrays?.slice(0,10).map((movieObject)=>{
             return (
                 <FilmThumbnail key={movieObject?.id} movieObject={movieObject}/>
               
