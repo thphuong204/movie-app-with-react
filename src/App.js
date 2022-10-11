@@ -68,28 +68,11 @@ function App() {
   }, [])
 
 
-  // useEffect(() => {
-  //   async function askPermission(){
-  //     if(!tmdbToken) {
-  //       let tmdbTokenTmp = await getRequestToken();
-  //       setTmdbToken(tmdbTokenTmp);
-  //       const askUserPermission =  () => {
-  //         window.location = `https://www.themoviedb.org/authenticate/${tmdbToken}?redirect_to=http://localhost:3000/home`;
-  //       } 
-  //       askUserPermission();
-  //       apiV3CreateSession() 
-  //     }
-  //   }
-  //   askPermission();
-  // },[])
-
-  
-  async function askPermission(){
-    let tmdbTokenTmp = await getRequestToken();
-    setTmdbToken((prev)=> tmdbTokenTmp);
-  }
-
   useEffect(() => {
+    async function askPermission(){
+      let tmdbTokenTmp = await getRequestToken();
+      setTmdbToken((prev)=> tmdbTokenTmp);
+    }
     askPermission();
   },[])
   

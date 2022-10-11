@@ -89,13 +89,18 @@ export const apiV3CreateSession = async (movieId) => {
     return response.data;
 }
 
+   
 
   async function getRequestToken() {
     let tmdbSessionTokenString = localStorage.getItem('tmdbTokenLocalStorage');
+    const askUserPermission =  () => {
+        window.location = `https://www.themoviedb.org/authenticate/${tmdbSessionTokenString}?redirect_to=http://localhost:3000/home`;
+    } 
+
     if (!tmdbSessionTokenString) {
       tmdbSessionTokenString = await apiV3GetToken();
       localStorage.setItem('tmdbTokenLocalStorage', tmdbSessionTokenString);
-      return tmdbSessionTokenString;
+      askUserPermission();
     }
     console.log("tmdbSessionTokenString",tmdbSessionTokenString)
     return tmdbSessionTokenString;
