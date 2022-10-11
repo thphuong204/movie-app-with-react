@@ -20,6 +20,7 @@ function App() {
   const [movieCommedyArrays,setCommedyArrays] = useState(null);
   const [movieDrammaArrays,setDrammaArrays] = useState(null);
   const [tmdbToken,setTmdbToken] = useState(null);
+  const [session, setSession] = useState(null);
 
   useEffect(() => {
     //useEffect warning error when putting async before useEffect arrow function => fixed
@@ -67,17 +68,19 @@ function App() {
       setMovie();
   }, [])
 
+   
 
   useEffect(() => {
     async function askPermission(){
       let tmdbTokenTmp = await getRequestToken();
-      setTmdbToken((prev)=> tmdbTokenTmp);
+      let sessionTmp = await apiV3CreateSession(tmdbTokenTmp);  
+      setSession((prev) => sessionTmp);
     }
     askPermission();
   },[])
   
 
-  console.log("tmdbToken",tmdbToken);
+  console.log("session",session);
   return (
     
     <div className="App">

@@ -12,6 +12,7 @@ const requestToken = axios.create ({
     }
 })
 
+
 const request = axios.create({
     baseURL: API_V3_BASE_URL,
     timeout: 1000,
@@ -83,13 +84,15 @@ export const apiV3GetToken = async (movieId) => {
     return data["request_token"];
 }
 
-export const apiV3CreateSession = async () => {
-    const response = await requestToken.post('authentication/session/new');
-    console.log("session",response.data);
+export const apiV3CreateSession = async (tmdbToken) => {
+    const response = await axios.post('https://api.themoviedb.org/3/authentication/session/new?api_key=68fd99303e96482d9eaff74537d24001',{
+        "request_token":tmdbToken
+    });
+    console.log("response session",response.data);
     return response.data;
-}
+    
+    }
 
-   
 
   async function getRequestToken() {
     let tmdbSessionTokenString = localStorage.getItem('tmdbTokenLocalStorage');
