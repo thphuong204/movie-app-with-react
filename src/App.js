@@ -7,7 +7,10 @@ import VideoPlayerPage from './pages/VideoPlayerPage';
 import HomePage from './pages/HomePage';
 import FilmByGenresPage from './pages/FilmByGenresPage';
 import { TestApiComponent } from './components/TestApiComponent';
-import {apiV3GetToken,apiV3CreateSession, apiV3Discover, apiV3DiscoverAction, apiV3DiscoverCommedy, apiV3DiscoverDramma, apiV3GetMovieDetails, getRequestToken } from './apis/tmdb';
+import {apiV3GetToken,apiV3CreateSession, apiV3SearchMovie, 
+  apiV3Discover, 
+  apiV3DiscoverAction, apiV3DiscoverCommedy, apiV3DiscoverDramma, 
+  apiV3GetMovieDetails, getRequestToken } from './apis/tmdb';
 
 import { Outlet} from "react-router-dom";
 
@@ -20,7 +23,7 @@ function App() {
   const [movieCommedyArrays,setCommedyArrays] = useState(null);
   const [movieDrammaArrays,setDrammaArrays] = useState(null);
   const [tmdbToken,setTmdbToken] = useState(null);
-  const [session, setSession] = useState(null);
+  const [searchQuery,setSearchQuery] = useState(null);
 
   useEffect(() => {
     //useEffect warning error when putting async before useEffect arrow function => fixed
@@ -73,14 +76,19 @@ function App() {
   useEffect(() => {
     async function askPermission(){
       let tmdbTokenTmp = await getRequestToken();
-      let sessionTmp = await apiV3CreateSession(tmdbTokenTmp);  
-      setSession((prev) => sessionTmp);
+      setTmdbToken((prev)=> tmdbTokenTmp); 
     }
     askPermission();
-  },[])
+  },[tmdbToken])
   
+  useEffect(() => {
+    async function getSearchResult(){
+      let searchResult = await apiV3SearchMovie(searchQuery);
+      console.log("search",searchResult);
+    };
+    getSearchResult();
+  },[searchQuery])
 
-  console.log("session",session);
   return (
     
     <div className="App">
@@ -91,7 +99,9 @@ function App() {
                 movieArrays, setMovieArrays,
                 movieActionArrays,setActionArrays,
                 movieCommedyArrays,setCommedyArrays,
-                movieDrammaArrays,setDrammaArrays }}
+                movieDrammaArrays,setDrammaArrays,
+                searchQuery,setSearchQuery,
+               }}
               >
                 <Outlet />
               </FilmContext.Provider>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { styled, alpha, createTheme, ThemeProvider } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -19,6 +19,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import "./../App.css";
 import { grey, orange, red } from '@mui/material/colors';
 import { useNavigate } from 'react-router-dom';
+import { FilmContext } from '../App';
 
 const theme = createTheme({
   palette: {
@@ -101,6 +102,8 @@ const Search = styled('div')(({ theme }) => ({
   }));
   
 function FilmAppBar() {
+  const {setSearchQuery} = useContext(FilmContext);
+
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -270,8 +273,11 @@ function FilmAppBar() {
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
-              placeholder="Search…"
+              placeholder="Enter for Search"
               inputProps={{ 'aria-label': 'search' }}
+              onKeyPress = {(e)=>
+                {if (e.key === "Enter") {setSearchQuery(e.target.value)}}
+              }
             />
           </Search>
           <Box sx={{ flexGrow: 1 }} />
