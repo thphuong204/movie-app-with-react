@@ -16,7 +16,7 @@ function FilmThumbnail({movieObject}) {
         sx={{
             height:{xs:"120px",md:"200px"}
         }}
-        image={`https://image.tmdb.org/t/p/original/${movieObject?.poster_path}`}
+        image={`https://image.tmdb.org/t/p/w342/${movieObject?.poster_path }`}
         alt="green iguana"
       />
             <CardContent
