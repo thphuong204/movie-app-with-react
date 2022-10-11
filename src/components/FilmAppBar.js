@@ -237,9 +237,9 @@ function FilmAppBar() {
               'aria-labelledby': 'basic-button',
             }}
           >
-              <MenuItem onClick={handleClose}>Home</MenuItem>
+              <MenuItem onClick={() =>{navigate('/home')}}>Home</MenuItem>
               <MenuItem onClick={handleClose}>Favorite</MenuItem>
-              <MenuItem onClick={handleClose}>Genres</MenuItem>
+              <MenuItem onClick={() =>{navigate('/genres')}}>Genres</MenuItem>
           </Menu>
 
           <Typography
