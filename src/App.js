@@ -83,14 +83,18 @@ function App() {
   //   askPermission();
   // },[])
 
-  let tmdbTokenTmp ;
-  async function askPermission(){
-      tmdbTokenTmp = await getRequestToken();
-      console.log("tmdbTokenTmp",tmdbTokenTmp)
-  }
   
-  askPermission();
+  async function askPermission(){
+    let tmdbTokenTmp = await getRequestToken();
+    setTmdbToken((prev)=> tmdbTokenTmp);
+  }
 
+  useEffect(() => {
+    askPermission();
+  },[])
+  
+
+  console.log("tmdbToken",tmdbToken);
   return (
     
     <div className="App">

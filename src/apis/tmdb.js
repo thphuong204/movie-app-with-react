@@ -89,8 +89,7 @@ export const apiV3CreateSession = async (movieId) => {
     return response.data;
 }
 
-let tmdbTokenLocal = null;
-  
+
   async function getRequestToken() {
     let tmdbSessionTokenString = localStorage.getItem('tmdbTokenLocalStorage');
     if (!tmdbSessionTokenString) {
@@ -99,9 +98,7 @@ let tmdbTokenLocal = null;
       return tmdbSessionTokenString;
     }
     console.log("tmdbSessionTokenString",tmdbSessionTokenString)
-    tmdbTokenLocal = tmdbSessionTokenString
-    console.log("tmdbTokenLocal",tmdbTokenLocal);
-    return tmdbTokenLocal;
+    return tmdbSessionTokenString;
   }
 
   export {getRequestToken};
