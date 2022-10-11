@@ -28,3 +28,10 @@ GET https://api.themoviedb.org/3/genre/movie/list?api_key=68fd99303e96482d9eaff7
 
 ### Get movie by genre:
 GET https://api.themoviedb.org/3/discover/movie?api_key=68fd99303e96482d9eaff74537d24001&with_genres=28
+
+
+### Create Request Token
+GET https://api.themoviedb.org/3/authentication/token/new?api_key=68fd99303e96482d9eaff74537d24001
+
+### Create Session
+GET https://api.themoviedb.org/3/authentication/session/new?api_key=68fd99303e96482d9eaff74537d24001
