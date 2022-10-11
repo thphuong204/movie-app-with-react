@@ -12,7 +12,6 @@ const requestToken = axios.create ({
     }
 })
 
-
 const request = axios.create({
     baseURL: API_V3_BASE_URL,
     timeout: 1000,
@@ -78,6 +77,11 @@ export const apiV3GetMovieDetails = async (movieId) => {
     return response.data;
 }
 
+export const apiV3SearchMovie = async (searchQuery) => {
+    const response = await axios.get(`https://api.themoviedb.org/3/search/movie/?api_key=68fd99303e96482d9eaff74537d24001&query=${searchQuery}`);
+    return response.data;
+}
+
 export const apiV3GetToken = async (movieId) => {
     const response = await requestToken.get('authentication/token/new');
     const data = await response.data;
@@ -96,14 +100,15 @@ export const apiV3CreateSession = async (tmdbToken) => {
 
   async function getRequestToken() {
     let tmdbSessionTokenString = localStorage.getItem('tmdbTokenLocalStorage');
-    const askUserPermission =  () => {
+    const askUserPermission = async () => {
         window.location = `https://www.themoviedb.org/authenticate/${tmdbSessionTokenString}?redirect_to=http://localhost:3000/home`;
     } 
 
     if (!tmdbSessionTokenString) {
       tmdbSessionTokenString = await apiV3GetToken();
-      localStorage.setItem('tmdbTokenLocalStorage', tmdbSessionTokenString);
-      askUserPermission();
+        localStorage.setItem('tmdbTokenLocalStorage', tmdbSessionTokenString);
+      await askUserPermission();
+      apiV3CreateSession(tmdbSessionTokenString);
     }
     console.log("tmdbSessionTokenString",tmdbSessionTokenString)
     return tmdbSessionTokenString;
