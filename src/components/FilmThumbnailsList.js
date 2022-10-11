@@ -1,11 +1,10 @@
 import React, { useContext } from 'react'
 import FilmThumbnail from './FilmThumbnail';
 import './../App.css';
-import { FilmContext } from '../App';
 import Slider from "react-slick";
 
-function FilmThumbnailsList() {
-  const { movieDetails, setMovieDetails, movieArrays, setMovieArrays } = useContext(FilmContext);
+function FilmThumbnailsList({movieArrays}) {
+
   const settings = {
     dots: true,
     infinite: true, 

@@ -4,6 +4,7 @@ import { Box } from '@mui/system';
 import FilmThumbnail from '../components/FilmThumbnail';
 import FilmThumbnailsListCarousel from '../components/FilmThumbnailsListCarousel';
 import FilmAppBar from '../components/FilmAppBar';
+import { FilmContext } from '../App';
 
 
 
@@ -13,6 +14,7 @@ const onLearnMoreClick= () => {
 
 
 const HomePage = () => {
+    const { movieDetails, setMovieDetails, movieArrays, setMovieArrays } = useContext(FilmContext);
     
     return (
         <div id="allFilmsList"> 
@@ -24,7 +26,7 @@ const HomePage = () => {
                     <br/>
                     We really appreciate our customers and hope you have great experience with us.
                 </div>
-                <FilmThumbnailsListCarousel/>
+                <FilmThumbnailsListCarousel movieArrays={movieArrays}/>
         </div>
     )
 }

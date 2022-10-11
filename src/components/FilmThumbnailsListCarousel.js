@@ -5,12 +5,12 @@ import FilmThumbnailsList from './FilmThumbnailsList';
 // import "slick-carousel/slick/slick.css";
 // import "slick-carousel/slick/slick-theme.css";
 
-function FilmThumbnailsListCarousel() {
+function FilmThumbnailsListCarousel({movieArrays}) {
   
 
   return (
             <>
-            <FilmThumbnailsList/>
+            <FilmThumbnailsList movieArrays={movieArrays}/>
             </>
   );
 }
