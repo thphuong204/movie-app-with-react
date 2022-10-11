@@ -13,9 +13,62 @@ const request = axios.create({
     }
 });
 
+const requestAction = axios.create({
+    baseURL: API_V3_BASE_URL,
+    timeout: 1000,
+    params: {
+        api_key: API_V3_KEY,
+        page: 2,
+        append_to_response:"videos,images,credits",
+        with_genres: 28
+    }
+});
+
+const requestDramma = axios.create({
+    baseURL: API_V3_BASE_URL,
+    timeout: 1000,
+    params: {
+        api_key: API_V3_KEY,
+        page: 2,
+        append_to_response:"videos,images,credits",
+        with_genres: 18
+    }
+});
+const requestCommedy = axios.create({
+    baseURL: API_V3_BASE_URL,
+    timeout: 1000,
+    params: {
+        api_key: API_V3_KEY,
+        page: 2,
+        append_to_response:"videos,images,credits",
+        with_genres: 35
+    }
+});
+
 export const apiV3Discover = async (page, pageSize, searchQuery) => {
     console.log('discovering movie')
     const response = await request.get('discover/movie');
+    console.log(response.data);
+    return response.data;
+}
+
+export const apiV3DiscoverAction = async (page, pageSize, searchQuery) => {
+    console.log('discovering action movie')
+    const response = await requestAction.get('discover/movie');
+    console.log(response.data);
+    return response.data;
+}
+
+export const apiV3DiscoverCommedy = async (page, pageSize, searchQuery) => {
+    console.log('discovering action movie')
+    const response = await requestCommedy.get('discover/movie');
+    console.log(response.data);
+    return response.data;
+}
+
+export const apiV3DiscoverDramma = async (page, pageSize, searchQuery) => {
+    console.log('discovering action movie')
+    const response = await requestDramma.get('discover/movie');
     console.log(response.data);
     return response.data;
 }
@@ -26,3 +79,4 @@ export const apiV3GetMovieDetails = async (movieId) => {
     console.log(response.data);
     return response.data;
 }
+
