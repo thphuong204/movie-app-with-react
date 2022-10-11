@@ -1,5 +1,3 @@
-import { createTheme } from '@mui/material';
-import { grey, orange, red } from '@mui/material/colors';
 import React, { createContext, useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -11,6 +9,7 @@ import FilmByGenresPage from './pages/FilmByGenresPage';
 import { TestApiComponent } from './components/TestApiComponent';
 import { apiV3Discover, apiV3DiscoverAction, apiV3DiscoverCommedy, apiV3DiscoverDramma, apiV3GetMovieDetails } from './apis/tmdb';
 
+import { BrowserRouter } from "react-router-dom";
 
 const FilmContext = createContext();
 

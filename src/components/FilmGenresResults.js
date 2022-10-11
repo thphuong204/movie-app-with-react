@@ -4,9 +4,9 @@ import { FilmContext } from '../App';
 
 function FilmGenresResults() {
   const { 
-    movieActionArrays, setActionArrays, 
-    movieCommedyArrays, setCommedyArrays, 
-    movieDrammaArrays, setDrammaArrays } = useContext(FilmContext);
+    movieActionArrays, 
+    movieCommedyArrays, 
+    movieDrammaArrays } = useContext(FilmContext);
 
   return (
     <div id="film-genres-results" className='content'>

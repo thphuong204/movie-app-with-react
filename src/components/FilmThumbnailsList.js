@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import FilmThumbnail from './FilmThumbnail';
 import './../App.css';
 import Slider from "react-slick";

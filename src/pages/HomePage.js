@@ -1,20 +1,12 @@
 import React, { useContext } from 'react';
-import { Grid } from '@mui/material';
-import { Box } from '@mui/system';
-import FilmThumbnail from '../components/FilmThumbnail';
 import FilmThumbnailsListCarousel from '../components/FilmThumbnailsListCarousel';
 import FilmAppBar from '../components/FilmAppBar';
 import { FilmContext } from '../App';
 
 
 
-const onLearnMoreClick= () => {
-
-}
-
-
 const HomePage = () => {
-    const { movieDetails, setMovieDetails, movieArrays, setMovieArrays } = useContext(FilmContext);
+    const { movieArrays } = useContext(FilmContext);
     
     return (
         <div id="allFilmsList"> 
