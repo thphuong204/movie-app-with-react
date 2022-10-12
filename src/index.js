@@ -7,6 +7,7 @@ import FilmByGenresPage from './pages/FilmByGenresPage';
 import VideoPlayerPage from './pages/VideoPlayerPage';
 import FilmDetailsPage from './pages/FilmDetailsPage';
 import SearchPage from './pages/SearchPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -20,6 +21,7 @@ root.render(
                 <Route path="/search/:searchText" element={<SearchPage />} />
                 <Route path="/details/:movieId" element={<FilmDetailsPage />} />
                 <Route path="/details/:movieId/videoplayer/:videoId" element={<VideoPlayerPage />} />
+                <Route path="*" element={<NotFoundPage />} />
             </Route>
         </Routes>
     </BrowserRouter>
