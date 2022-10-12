@@ -1,12 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import LogInPage from './pages/LogInPage';
-import FilmDetailsPage from './pages/FilmDetailsPage';
-import VideoPlayerPage from './pages/VideoPlayerPage';
-import HomePage from './pages/HomePage';
-import FilmByGenresPage from './pages/FilmByGenresPage';
-import { TestApiComponent } from './components/TestApiComponent';
 import {apiV3GetToken,apiV3CreateSession, apiV3SearchMovie, 
   apiV3Discover, 
   apiV3DiscoverAction, apiV3DiscoverCommedy, apiV3DiscoverDramma, 
@@ -24,6 +18,7 @@ function App() {
   const [movieDrammaArrays,setDrammaArrays] = useState(null);
   const [tmdbToken,setTmdbToken] = useState(null);
   const [searchQuery,setSearchQuery] = useState(null);
+  const [searchResultsArray,setSearchResultsArray] = useState(null);
 
   useEffect(() => {
     //useEffect warning error when putting async before useEffect arrow function => fixed
@@ -83,8 +78,10 @@ function App() {
   
   useEffect(() => {
     async function getSearchResult(){
-      let searchResult = await apiV3SearchMovie(searchQuery);
-      console.log("search",searchResult);
+      if(searchQuery) {
+        let searchResult = await apiV3SearchMovie(searchQuery);
+        setSearchResultsArray(searchResult);
+      }
     };
     getSearchResult();
   },[searchQuery])
@@ -101,6 +98,7 @@ function App() {
                 movieCommedyArrays,setCommedyArrays,
                 movieDrammaArrays,setDrammaArrays,
                 searchQuery,setSearchQuery,
+                searchResultsArray
                }}
               >
                 <Outlet />
