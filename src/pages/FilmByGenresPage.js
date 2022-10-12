@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { apiV3DiscoverAction, apiV3DiscoverCommedy, apiV3DiscoverDramma } from '../apis/tmdb';
-import FilmAppBar from '../components/FilmAppBar'
-import FilmGenresResults from '../components/FilmGenresResults'
+import FilmAppBar from '../components/FilmAppBar';
+import FilmGenresResults from '../components/FilmGenresResults';
+import Pagination from '@mui/material/Pagination';
+import PaginationItem from '@mui/material/PaginationItem';
 
 function FilmByGenresPage() {
   let {pageId}= useParams();
+  let page = parseInt(pageId);
 
   const [movieActionArrays,setActionArrays] = useState(null);
   const [movieCommedyArrays,setCommedyArrays] = useState(null);
@@ -39,10 +42,43 @@ function FilmByGenresPage() {
   }, [pageId])
 
 
+  function Content({ handlePageArrayData }) {
+    
+    return (
+      
+     <div className="pagination-item"
+               style={{
+                   display: "flex",
+                   justifyContent: 'center',
+                   marginTop: "20px",
+               }}>
+               <Pagination
+                   page={page}
+                   count={10}
+                   renderItem={(item) => (
+                       <PaginationItem
+                           style={{
+                               fontWeight: "bold",
+                               fontSize: "18px",
+                               color:"white"
+                           }}
+                           component={Link}
+                           to={`/genres/${item.page}`}
+                           {...item}
+                           onClick={(e) => handlePageArrayData(e)}
+                       />
+                   )}
+               />
+           </div>
+    )
+   }
+
+  
   return (
     <div>
         <FilmAppBar/>
         <FilmGenresResults movieActionArrays={movieActionArrays} movieCommedyArrays={movieCommedyArrays} movieDrammaArrays={movieDrammaArrays}/>
+        <Content/>
     </div>
   )
 }

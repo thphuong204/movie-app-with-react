@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import FilmThumbnailsListCarousel from '../components/FilmThumbnailsListCarousel';
 import FilmAppBar from '../components/FilmAppBar';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { apiV3Discover } from '../apis/tmdb';
-
+import Pagination from '@mui/material/Pagination';
+import PaginationItem from '@mui/material/PaginationItem';
 
 
 const HomePage = () => {
     const [movieArrays, setMovieArrays] = useState(null);
     let {pageId} = useParams();
+    let page = parseInt(pageId);
     console.log("pageId",pageId);
 
     useEffect(() => {
@@ -22,6 +24,38 @@ const HomePage = () => {
     console.log(
         "movieArrays",movieArrays
     )
+
+    function Content({ handlePageArrayData }) {
+    
+        return (
+          
+         <div className="pagination-item"
+                   style={{
+                       display: "flex",
+                       justifyContent: 'center',
+                       marginTop: "20px",
+                   }}>
+                   <Pagination
+                       page={page}
+                       count={10}
+                       renderItem={(item) => (
+                           <PaginationItem
+                               style={{
+                                   fontWeight: "bold",
+                                   fontSize: "18px",
+                                   color:"white"
+                               }}
+                               component={Link}
+                               to={`/discover/${item.page}`}
+                               {...item}
+                               onClick={(e) => handlePageArrayData(e)}
+                           />
+                       )}
+                   />
+               </div>
+        )
+       }
+
     return (
         <div id="allFilmsList"> 
                 <div className="wrapper">
@@ -33,6 +67,7 @@ const HomePage = () => {
                     We really appreciate our customers and hope you have great experience with us.
                 </div>
                 <FilmThumbnailsListCarousel movieArrays={movieArrays}/>
+                <Content/>
         </div>
     )
 }
