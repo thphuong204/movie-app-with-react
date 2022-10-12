@@ -16,14 +16,25 @@ function FilmThumbnailsList({movieArrays}) {
 
   return (
     <div className="filmThumbnailsList">
-       <Slider {...settings}>
-          {movieArrays?.map((movieObject)=>{
-            return (
-                <FilmThumbnail key={movieObject?.id} movieObject={movieObject}/>
-              
-              )
-          })}
-          </Slider>
+      {movieArrays?.length ?  
+      <Slider {...settings}>
+      {movieArrays?.map((movieObject)=>{
+        return (
+            <FilmThumbnail key={movieObject?.id} movieObject={movieObject}/>
+          
+          )
+      })}
+      </Slider> 
+      : <div 
+          className="wrapper" 
+          style={{
+            color:"white",
+            fontWeight:"bold"
+          }}
+        >
+        There are no results that match your search</div>
+      }
+       
    
     </div>
   )
