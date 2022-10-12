@@ -1,15 +1,19 @@
 import React from 'react';
 import {Card, CardContent, CardMedia,  Divider, Typography} from '@mui/material';
 import './../App.css';
+import { useNavigate } from 'react-router-dom';
 
 function FilmThumbnail({movieObject}) {
+    const navigate = useNavigate();
     return (
         <Card 
+            id={movieObject?.id}
             className="filmThumbnailCard" 
             sx= {{
                 width:{xs:"200px",md:"300px"},
                 height:{xs:"200px",md:"300px"},
-            }}       
+            }}   
+            onClick={() =>{navigate(`/details/${movieObject?.id}`)}}    
         >
              <CardMedia
         component="img"
@@ -17,7 +21,7 @@ function FilmThumbnail({movieObject}) {
             height:{xs:"120px",md:"200px"}
         }}
         image={`https://image.tmdb.org/t/p/w342/${movieObject?.poster_path }`}
-        alt="green iguana"
+        alt="The image is not available right now. Please try again later."
       />
             <CardContent
             sx={{
