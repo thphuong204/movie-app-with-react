@@ -1,15 +1,31 @@
 
-import React, { useContext } from 'react';
+import React, {  useEffect, useState } from 'react';
 import { Accordion, Col, Container, Row } from 'react-bootstrap';
 import FilmAppBar from '../components/FilmAppBar';
-import { FilmContext } from '../App';
+import { useNavigate, useParams } from "react-router-dom";
+import { apiV3GetMovieDetails } from '../apis/tmdb';
 
 function VideoPlayerPage() {
-    const {movieDetails} = useContext(FilmContext);
+
+    let {movieId} = useParams();
+    let {videoId} = useParams();
+    const [movieDetails, setMovieDetails] = useState(null);
+    useEffect(() => {
+        async function setMovie() {
+            const movie = await apiV3GetMovieDetails(movieId);
+            setMovieDetails(movie);
+        }
+        setMovie();
+    }, [movieId])
+
+    console.log("movieDetails",movieDetails);
+
     let movieTitle = movieDetails?.title || "";
     const movieOverview = movieDetails?.overview || "";
     const videoOriginalArr = movieDetails?.videos?.results ;
-    const youtubeKey = "1kNYq379pIc" ;
+    const youtubeKey = videoId ;
+
+    const navigate = useNavigate();
 
   return (
     <div id="video-player">
@@ -23,6 +39,7 @@ function VideoPlayerPage() {
                     <iframe width="420" height="400"
                     src={`https://www.youtube.com/embed/${youtubeKey}`}
                     title={movieTitle}
+                    alt="Video is not available right now."
                     >
                     </iframe>
                     </div>
@@ -54,10 +71,11 @@ function VideoPlayerPage() {
                                         {videoOriginalArr?.slice(0,2).map((videoObject,i)=>{
                                             return (
 
-                                                <li key={i} className="selection_ep-name">
-                                                    <a href="!#">
+                                                <li key={i} className="selection_ep-name"
+                                                onClick={ () => {navigate(`/videoplayer/acb`)}}>
+                                                    
                                                         {videoObject?.name}
-                                                    </a>
+                                                   
                                                 </li>
                                             )
                                         })}
