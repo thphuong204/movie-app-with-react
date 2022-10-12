@@ -6,7 +6,7 @@ import Col from 'react-bootstrap/Col';
 import Image  from 'react-bootstrap/Image';
 import FilmAppBar from '../components/FilmAppBar';
 import './../App.css';
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { apiV3GetMovieDetails } from '../apis/tmdb';
 
 function FilmDetailsPage() {
@@ -90,11 +90,15 @@ function FilmDetailsPage() {
                       <ul>
                         {videoOriginalArr?.slice(0,2)?.map((videoObject,i)=> {
                           return (
-                            <li className="episode-name" key={i} onClick={()=>{navigate(`videoplayer/${videoObject?.key}`)}}>
-                              
+                            <div key={i}>
+                            <Link 
+                                  className="episode-name"  
+                                  to={`videoplayer/${videoObject?.key}`}
+                            // onClick={()=>{navigate(`videoplayer/${videoObject?.key}`)}}
+                            >
                                 {videoObject?.name}
-                            
-                            </li>
+                            </Link>
+                            </div>
                           )
                         })}
                       </ul>

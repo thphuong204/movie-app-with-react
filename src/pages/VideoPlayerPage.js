@@ -2,7 +2,7 @@
 import React, {  useEffect, useState } from 'react';
 import { Accordion, Col, Container, Row } from 'react-bootstrap';
 import FilmAppBar from '../components/FilmAppBar';
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { apiV3GetMovieDetails } from '../apis/tmdb';
 
 function VideoPlayerPage() {
@@ -70,13 +70,15 @@ function VideoPlayerPage() {
                                     <ul>
                                         {videoOriginalArr?.slice(0,2).map((videoObject,i)=>{
                                             return (
-
-                                                <li key={i} className="selection_ep-name"
-                                                onClick={ () => {navigate(`/details/:movieId/videoplayer/${videoObject?.key}`)}}>
-                                                    
+                                                <div key={i}>
+                                                <Link  
+                                                    className="selection_ep-name"
+                                                    to={`/details/:movieId/videoplayer/${videoObject?.key}`}
+                                                // onClick={ () => {navigate(`/details/:movieId/videoplayer/${videoObject?.key}`)}}
+                                                >
                                                         {videoObject?.name}
-                                                   
-                                                </li>
+                                                </Link>
+                                                </div>
                                             )
                                         })}
                                     </ul>
