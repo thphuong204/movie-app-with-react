@@ -72,7 +72,7 @@ function VideoPlayerPage() {
                                             return (
 
                                                 <li key={i} className="selection_ep-name"
-                                                onClick={ () => {navigate(`/videoplayer/acb`)}}>
+                                                onClick={ () => {navigate(`/details/:movieId/videoplayer/${videoObject?.key}`)}}>
                                                     
                                                         {videoObject?.name}
                                                    
