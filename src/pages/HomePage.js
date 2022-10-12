@@ -1,7 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import FilmThumbnailsListCarousel from '../components/FilmThumbnailsListCarousel';
 import FilmAppBar from '../components/FilmAppBar';
-import { FilmContext } from '../App';
 import { useParams } from 'react-router-dom';
 import { apiV3Discover } from '../apis/tmdb';
 
