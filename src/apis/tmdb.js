@@ -97,20 +97,20 @@ export const apiV3CreateSession = async (tmdbToken) => {
     }
 
 
-  async function getRequestToken() {
-    let tmdbSessionTokenString = localStorage.getItem('tmdbTokenLocalStorage');
-    const askUserPermission = async () => {
-        window.location = `https://www.themoviedb.org/authenticate/${tmdbSessionTokenString}?redirect_to=http://localhost:3000/home`;
-    } 
+//   async function getRequestToken() {
+//     let tmdbSessionTokenString = localStorage.getItem('tmdbTokenLocalStorage');
+//     const askUserPermission = async () => {
+//         window.location = `https://www.themoviedb.org/authenticate/${tmdbSessionTokenString}?redirect_to=http://localhost:3000/home`;
+//     } 
 
-    if (!tmdbSessionTokenString) {
-      tmdbSessionTokenString = await apiV3GetToken();
-        localStorage.setItem('tmdbTokenLocalStorage', tmdbSessionTokenString);
-      await askUserPermission();
-      apiV3CreateSession(tmdbSessionTokenString);
-    }
-    console.log("tmdbSessionTokenString",tmdbSessionTokenString)
-    return tmdbSessionTokenString;
-  }
+//     if (!tmdbSessionTokenString) {
+//       tmdbSessionTokenString = await apiV3GetToken();
+//         localStorage.setItem('tmdbTokenLocalStorage', tmdbSessionTokenString);
+//       await askUserPermission();
+//       apiV3CreateSession(tmdbSessionTokenString);
+//     }
+//     console.log("tmdbSessionTokenString",tmdbSessionTokenString)
+//     return tmdbSessionTokenString;
+//   }
 
-  export {getRequestToken};
+//   export {getRequestToken};
