@@ -8,7 +8,7 @@ import PaginationItem from '@mui/material/PaginationItem';
 
 function FilmByGenresPage() {
   let {pageId}= useParams();
-  let page = parseInt(pageId);
+  let page = parseInt(pageId) || 1;
 
   const [movieActionArrays,setActionArrays] = useState(null);
   const [movieCommedyArrays,setCommedyArrays] = useState(null);
@@ -63,7 +63,7 @@ function FilmByGenresPage() {
                                color:"white"
                            }}
                            component={Link}
-                           to={`/genres/${item.page}`}
+                           to={`/genres/${item.page || 1}`}
                            {...item}
                            onClick={(e) => handlePageArrayData(e)}
                        />

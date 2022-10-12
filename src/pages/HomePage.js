@@ -10,7 +10,7 @@ import PaginationItem from '@mui/material/PaginationItem';
 const HomePage = () => {
     const [movieArrays, setMovieArrays] = useState(null);
     let {pageId} = useParams();
-    let page = parseInt(pageId);
+    let page = parseInt(pageId) || 1;
     console.log("pageId",pageId);
 
     useEffect(() => {
@@ -46,7 +46,7 @@ const HomePage = () => {
                                    color:"white"
                                }}
                                component={Link}
-                               to={`/discover/${item.page}`}
+                               to={`/discover/${item.page || 1}`}
                                {...item}
                                onClick={(e) => handlePageArrayData(e)}
                            />
