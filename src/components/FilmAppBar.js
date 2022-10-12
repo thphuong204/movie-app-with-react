@@ -240,7 +240,7 @@ function FilmAppBar() {
               'aria-labelledby': 'basic-button',
             }}
           >
-              <MenuItem onClick={() =>{navigate('/home')}}>Home</MenuItem>
+              <MenuItem onClick={() =>{navigate('/discover/1')}}>Home</MenuItem>
               <MenuItem onClick={() =>{navigate('/genres')}}>By Genres</MenuItem>
               <MenuItem onClick={handleClose}>Favorite</MenuItem>
           </Menu>
@@ -248,7 +248,7 @@ function FilmAppBar() {
           <Typography
             className="nav-item"
             sx={{ display: { xs: 'none', md: 'flex' } }}
-            onClick={() =>{navigate('/home')}}
+            onClick={() =>{navigate('/discover/1')}}
           >
             <span className="nav-text">Home</span>
           </Typography>

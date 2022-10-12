@@ -17,7 +17,6 @@ const request = axios.create({
     timeout: 1000,
     params: {
         api_key: API_V3_KEY,
-        page: 2,
         append_to_response:"videos,images,credits"
     }
 });
@@ -52,8 +51,8 @@ const requestCommedy = axios.create({
     }
 });
 
-export const apiV3Discover = async (page, pageSize, searchQuery) => {
-    const response = await request.get('discover/movie');
+export const apiV3Discover = async (pageId=1) => {
+    const response = await axios.get(`https://api.themoviedb.org/3/discover/movie/?api_key=68fd99303e96482d9eaff74537d24001&page=${pageId}`);
     return response.data;
 }
 

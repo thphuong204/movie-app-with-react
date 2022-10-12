@@ -1,13 +1,28 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import FilmThumbnailsListCarousel from '../components/FilmThumbnailsListCarousel';
 import FilmAppBar from '../components/FilmAppBar';
 import { FilmContext } from '../App';
+import { useParams } from 'react-router-dom';
+import { apiV3Discover } from '../apis/tmdb';
 
 
 
 const HomePage = () => {
-    const { movieArrays } = useContext(FilmContext);
-    
+    const [movieArrays, setMovieArrays] = useState(null);
+    let {pageId} = useParams();
+    console.log("pageId",pageId);
+
+    useEffect(() => {
+        async function setMovieArr() {
+          const movieArr = await apiV3Discover(pageId);
+          setMovieArrays(movieArr.results);
+        }
+        setMovieArr();
+      },[pageId]);
+      
+    console.log(
+        "movieArrays",movieArrays
+    )
     return (
         <div id="allFilmsList"> 
                 <div className="wrapper">
