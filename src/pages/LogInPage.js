@@ -61,15 +61,8 @@ const LogInPage = (props) => {
   const navigate = useNavigate();
 
   const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors }
+    watch
   } = useForm();
-
-  const onSubmit = (data) => {
-    alert(JSON.stringify(data));
-  }; // your form submit function which will invoke after successful validation
 
   console.log(watch("example")); // you can watch individual input by pass the name of the input
   const [email, setEmail] = useState("phuong@gmail.com");
