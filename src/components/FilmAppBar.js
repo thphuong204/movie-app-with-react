@@ -241,8 +241,8 @@ function FilmAppBar() {
             }}
           >
               <MenuItem onClick={() =>{navigate('/home')}}>Home</MenuItem>
+              <MenuItem onClick={() =>{navigate('/genres')}}>By Genres</MenuItem>
               <MenuItem onClick={handleClose}>Favorite</MenuItem>
-              <MenuItem onClick={() =>{navigate('/genres')}}>Genres</MenuItem>
           </Menu>
 
           <Typography
@@ -255,16 +255,16 @@ function FilmAppBar() {
           <Typography
             className="nav-item"
             sx={{ display: { xs: 'none', md: 'flex' } }}
+            onClick={() =>{navigate('/genres')}}
           >
-            <FavoriteIcon className="nav-text"/> 
-            <span className="nav-text">Favorite</span>
+            <span className="nav-text">By Genres</span>
           </Typography>
           <Typography
             className="nav-item"
             sx={{ display: { xs: 'none', md: 'flex' } }}
-            onClick={() =>{navigate('/genres')}}
           >
-            <span className="nav-text">Genres</span>
+            <FavoriteIcon className="nav-text"/> 
+            <span className="nav-text">Favorite</span>
           </Typography>
 
 
@@ -276,7 +276,9 @@ function FilmAppBar() {
               placeholder="Enter for Search"
               inputProps={{ 'aria-label': 'search' }}
               onKeyPress = {(e)=>
-                {if (e.key === "Enter") {setSearchQuery(e.target.value)}}
+                {if (e.key === "Enter" && e.target.value) {
+                  setSearchQuery(e.target.value);
+                  navigate(`/search/${e.target.value}`)}}
               }
             />
           </Search>
