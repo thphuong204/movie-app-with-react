@@ -73,7 +73,7 @@ export const apiV3DiscoverDramma = async (page, pageSize, searchQuery) => {
 }
 
 export const apiV3GetMovieDetails = async (movieId) => {
-    const response = await request.get('movie/760161');
+    const response = await request.get(`movie/${movieId}`);
     return response.data;
 }
 
