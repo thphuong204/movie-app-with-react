@@ -28,11 +28,31 @@ root.render(
                             <HomePage />
                         </AuthRequire>
                     } />
-                    <Route path="/discover/:pageId" element={<HomePage />} />
-                    <Route path="/genres/:pageId" element={<FilmByGenresPage />} />
-                    <Route path="/search/:searchText" element={<SearchPage />} />
-                    <Route path="/details/:movieId" element={<FilmDetailsPage />} />
-                    <Route path="/details/:movieId/videoplayer/:videoId" element={<VideoPlayerPage />} />
+                    <Route path="/discover/:pageId" element={
+                        <AuthRequire>
+                             <HomePage />
+                        </AuthRequire>
+                    } />
+                    <Route path="/genres/:pageId" element={
+                        <AuthRequire>
+                            <FilmByGenresPage />
+                        </AuthRequire>
+                    } />
+                    <Route path="/search/:searchText" element={
+                        <AuthRequire>
+                            <SearchPage />
+                        </AuthRequire>
+                    } />
+                    <Route path="/details/:movieId" element={
+                        <AuthRequire>
+                            <FilmDetailsPage />
+                        </AuthRequire>
+                    } />
+                    <Route path="/details/:movieId/videoplayer/:videoId" element={
+                        <AuthRequire>
+                            <VideoPlayerPage />
+                        </AuthRequire>
+                    } />
                     <Route path="*" element={<NotFoundPage />} />
                 </Route>
             </Routes>
