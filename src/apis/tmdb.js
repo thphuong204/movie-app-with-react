@@ -79,7 +79,7 @@ export const apiV3GetMovieDetails = async (movieId) => {
 
 export const apiV3SearchMovie = async (searchQuery) => {
     const response = await axios.get(`https://api.themoviedb.org/3/search/movie/?api_key=68fd99303e96482d9eaff74537d24001&query=${searchQuery}`);
-    return response.data;
+    return response.data.results;
 }
 
 export const apiV3GetToken = async (movieId) => {
