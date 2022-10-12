@@ -1,13 +1,8 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import FilmThumbnailsListCarousel from './FilmThumbnailsListCarousel';
-import { FilmContext } from '../App';
 
-function FilmGenresResults() {
-  const { 
-    movieActionArrays, 
-    movieCommedyArrays, 
-    movieDrammaArrays } = useContext(FilmContext);
-
+function FilmGenresResults({movieActionArrays, movieCommedyArrays,movieDrammaArrays }) {
+  
   return (
     <div id="film-genres-results" className='content'>
       <div className="filmThumbnailsListCarousel">

@@ -18,7 +18,7 @@ root.render(
                 <Route path="" element={<HomePage />} />
                 <Route path="/home" element={<HomePage />} />
                 <Route path="/discover/:pageId" element={<HomePage />} />
-                <Route path="/genres" element={<FilmByGenresPage />} />
+                <Route path="/genres/:pageId" element={<FilmByGenresPage />} />
                 <Route path="/search/:searchText" element={<SearchPage />} />
                 <Route path="/details/:movieId" element={<FilmDetailsPage />} />
                 <Route path="/details/:movieId/videoplayer/:videoId" element={<VideoPlayerPage />} />

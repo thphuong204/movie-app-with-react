@@ -241,7 +241,7 @@ function FilmAppBar() {
             }}
           >
               <MenuItem onClick={() =>{navigate('/discover/1')}}>Home</MenuItem>
-              <MenuItem onClick={() =>{navigate('/genres')}}>By Genres</MenuItem>
+              <MenuItem onClick={() =>{navigate('/genres/1')}}>By Genres</MenuItem>
               <MenuItem onClick={handleClose}>Favorite</MenuItem>
           </Menu>
 
@@ -255,7 +255,7 @@ function FilmAppBar() {
           <Typography
             className="nav-item"
             sx={{ display: { xs: 'none', md: 'flex' } }}
-            onClick={() =>{navigate('/genres')}}
+            onClick={() =>{navigate('/genres/1')}}
           >
             <span className="nav-text">By Genres</span>
           </Typography>
