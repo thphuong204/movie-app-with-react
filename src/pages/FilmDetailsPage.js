@@ -1,15 +1,26 @@
 
-import React, { useContext} from 'react';
+import React, { useEffect, useState} from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image  from 'react-bootstrap/Image';
 import FilmAppBar from '../components/FilmAppBar';
 import './../App.css';
-import { FilmContext } from '../App';
+import { useNavigate, useParams } from "react-router-dom";
+import { apiV3GetMovieDetails } from '../apis/tmdb';
 
 function FilmDetailsPage() {
-  const {movieDetails} = useContext(FilmContext);
+  let {movieId} = useParams();
+ 
+  const [movieDetails, setMovieDetails] = useState(null);
+  useEffect(() => {
+    async function setMovie() {
+        const movie = await apiV3GetMovieDetails(movieId);
+        setMovieDetails(movie);
+    }
+    setMovie();
+  }, [movieId])
+
   let movieTitle = movieDetails?.title || "";
   const movieImage = movieDetails?.images?.posters?.[0]?.file_path || null;
   const movieOverview = movieDetails?.overview || "";
@@ -18,6 +29,7 @@ function FilmDetailsPage() {
   const castOriginalArr = movieDetails?.credits?.cast
   const videoOriginalArr = movieDetails?.videos?.results
 
+  const navigate = useNavigate();
   return (
     <div id="filmDetails" style={{backgroundColor:"grey"}}>
         <div>
@@ -28,8 +40,8 @@ function FilmDetailsPage() {
               <Row style={{width:"100%", margin:"0px", justifyContent:"center"}}>
                 <Col lg={4} md={6} sx={12} style={{padding:"0px"}}>
                 <Image className="filmDetailsBody_image"
-                src={`https://image.tmdb.org/t/p/original${movieImage}`}
-                alt="img of film">
+                src={`https://image.tmdb.org/t/p/original/${movieImage}`}
+                alt="The image is not available right now.">
                 </Image >
               </Col>
               </Row>
@@ -78,10 +90,10 @@ function FilmDetailsPage() {
                       <ul>
                         {videoOriginalArr?.slice(0,2)?.map((videoObject,i)=> {
                           return (
-                            <li className="episode-name" key={i}>
-                              <a href="!#">
+                            <li className="episode-name" key={i} onClick={()=>{navigate(`videoplayer/${videoObject?.key}`)}}>
+                              
                                 {videoObject?.name}
-                              </a>
+                            
                             </li>
                           )
                         })}
