@@ -52,22 +52,22 @@ const request = axios.create({
 // });
 
 export const apiV3Discover = async (pageId=1) => {
-    const response = await axios.get(`${API_V3_BASE_URL}/discover/movie/?api_key=${API_V3_KEY}&page=${pageId}`);
+    const response = await axios.get(`${API_V3_BASE_URL}/discover/movie?api_key=${API_V3_KEY}&page=${pageId}`);
     return response.data;
 }
 
 export const apiV3DiscoverAction = async (pageId=1) => {
-    const response = await axios.get(`${API_V3_BASE_URL}/discover/movie/?api_key=${API_V3_KEY}&page=${pageId}&with_genres=28`);
+    const response = await axios.get(`${API_V3_BASE_URL}/discover/movie?api_key=${API_V3_KEY}&page=${pageId}&with_genres=28`);
     return response.data;
 }
 
 export const apiV3DiscoverCommedy = async (pageId=1) => {
-    const response = await axios.get(`${API_V3_BASE_URL}/discover/movie/?api_key=${API_V3_KEY}&page=${pageId}&with_genres=35`);
+    const response = await axios.get(`${API_V3_BASE_URL}/discover/movie?api_key=${API_V3_KEY}&page=${pageId}&with_genres=35`);
     return response.data;
 }
 
 export const apiV3DiscoverDramma = async (pageId=1) => {
-    const response = await axios.get(`${API_V3_BASE_URL}/discover/movie/?api_key=${API_V3_KEY}&page=${pageId}&with_genres=18`);
+    const response = await axios.get(`${API_V3_BASE_URL}/discover/movie?api_key=${API_V3_KEY}&page=${pageId}&with_genres=18`);
     return response.data;
 }
 
@@ -77,7 +77,7 @@ export const apiV3GetMovieDetails = async (movieId) => {
 }
 
 export const apiV3SearchMovie = async (searchQuery) => {
-    const response = await axios.get(`${API_V3_BASE_URL}/search/movie/?api_key=${API_V3_KEY}&query=${searchQuery}`);
+    const response = await axios.get(`${API_V3_BASE_URL}/search/movie?api_key=${API_V3_KEY}&query=${searchQuery}`);
     return response.data.results;
 }
 
