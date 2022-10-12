@@ -10,7 +10,6 @@ import { Outlet} from "react-router-dom";
 const FilmContext = createContext();
 
 function App() {
-  // const [movieArrays, setMovieArrays] = useState(null);
   const [movieActionArrays,setActionArrays] = useState(null);
   const [movieCommedyArrays,setCommedyArrays] = useState(null);
   const [movieDrammaArrays,setDrammaArrays] = useState(null);
@@ -18,14 +17,6 @@ function App() {
   const [searchQuery,setSearchQuery] = useState(null);
   const [searchResultsArray,setSearchResultsArray] = useState(null);
 
-  // useEffect(() => {
-  //   //useEffect warning error when putting async before useEffect arrow function => fixed
-  //   async function setMovieArr() {
-  //     const movieArr = await apiV3Discover();
-  //     setMovieArrays(movieArr.results);
-  //   }
-  //   setMovieArr();
-  // }, [])
 
   useEffect(() => {
     //useEffect warning error when putting async before useEffect arrow function => fixed
