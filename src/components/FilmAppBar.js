@@ -15,11 +15,12 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
-import FavoriteIcon from '@mui/icons-material/Favorite';
+// import FavoriteIcon from '@mui/icons-material/Favorite';
 import "./../App.css";
 import { grey, orange, red } from '@mui/material/colors';
 import { useNavigate } from 'react-router-dom';
 import { FilmContext } from '../App';
+import { logOut } from '../apis/auth';
 
 const theme = createTheme({
   palette: {
@@ -103,7 +104,7 @@ const Search = styled('div')(({ theme }) => ({
   
 function FilmAppBar() {
   const {setSearchQuery} = useContext(FilmContext);
-
+  const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -154,7 +155,10 @@ function FilmAppBar() {
       onClose={handleMoreClose}
     >
       <MenuItem onClick={handleMoreClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMoreClose}>My account</MenuItem>
+      <MenuItem onClick={()=>{
+        logOut();
+        navigate('/login')
+      }}>Log out</MenuItem>
     </Menu>
   );
 
@@ -210,7 +214,6 @@ function FilmAppBar() {
     </Menu>
   );
 
-  const navigate = useNavigate();
   return (
     <ThemeProvider theme={theme}>
     <Box sx={{ flexGrow: 1 }} id="app-bar">
@@ -242,7 +245,7 @@ function FilmAppBar() {
           >
               <MenuItem onClick={() =>{navigate('/discover/1')}}>Home</MenuItem>
               <MenuItem onClick={() =>{navigate('/genres/1')}}>By Genres</MenuItem>
-              <MenuItem onClick={handleClose}>Favorite</MenuItem>
+              {/* <MenuItem onClick={handleClose}>Favorite</MenuItem> */}
           </Menu>
 
           <Typography
@@ -259,13 +262,13 @@ function FilmAppBar() {
           >
             <span className="nav-text">By Genres</span>
           </Typography>
-          <Typography
+          {/* <Typography
             className="nav-item"
             sx={{ display: { xs: 'none', md: 'flex' } }}
           >
             <FavoriteIcon className="nav-text"/> 
             <span className="nav-text">Favorite</span>
-          </Typography>
+          </Typography> */}
 
 
           <Search>
