@@ -1,7 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import {apiV3GetToken,apiV3CreateSession, apiV3SearchMovie, getRequestToken } from './apis/tmdb';
+import { apiV3SearchMovie, getRequestToken } from './apis/tmdb';
 
 import { Outlet} from "react-router-dom";
 
@@ -11,6 +11,7 @@ function App() {
   const [tmdbToken,setTmdbToken] = useState(null);
   const [searchQuery,setSearchQuery] = useState(null);
   const [searchResultsArray,setSearchResultsArray] = useState(null);
+  const [loggedIn, setLoggedIn] = useState(false);
 
   useEffect(() => {
     async function askPermission(){
@@ -37,7 +38,7 @@ function App() {
             <FilmContext.Provider 
               value={{ 
                 searchQuery,setSearchQuery,
-                searchResultsArray
+                searchResultsArray,loggedIn, setLoggedIn 
                }}
               >
                 <Outlet />

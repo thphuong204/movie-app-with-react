@@ -8,6 +8,7 @@ import VideoPlayerPage from './pages/VideoPlayerPage';
 import FilmDetailsPage from './pages/FilmDetailsPage';
 import SearchPage from './pages/SearchPage';
 import NotFoundPage from './pages/NotFoundPage';
+import LogInPage from './pages/LogInPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -16,6 +17,7 @@ root.render(
         <Routes>
             <Route path="/" element={<App />}>
                 <Route path="" element={<HomePage />} />
+                <Route path="/login" element={<LogInPage />} />
                 <Route path="/home" element={<HomePage />} />
                 <Route path="/discover/:pageId" element={<HomePage />} />
                 <Route path="/genres/:pageId" element={<FilmByGenresPage />} />

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import ReactDOM from "react-dom";
 import { useForm } from "react-hook-form";
 import "./formStyles.css";
@@ -11,6 +11,8 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { createTheme, ThemeProvider } from '@mui/material';
 import { grey, orange, red } from '@mui/material/colors';
+import { login } from '../apis/auth';
+import { FilmContext } from '../App';
 
 
 const theme = createTheme({
@@ -54,6 +56,7 @@ const theme = createTheme({
 
 
 function LogInPage() {
+
     const {
         register,
         handleSubmit,
@@ -66,8 +69,21 @@ function LogInPage() {
       }; // your form submit function which will invoke after successful validation
     
       console.log(watch("example")); // you can watch individual input by pass the name of the input
-      const [email, setEmail] = useState("phuong");
+      const [email, setEmail] = useState("phuong@gmail.com");
       const [password, setPassword] = useState("123456");
+      const { setLoggedIn } = useContext(FilmContext);
+
+      const handleLogin = () => {
+        const token = login(email, password);
+        console.log('token', token)
+        if (token) {
+          localStorage.setItem('token', JSON.stringify(token));
+          setLoggedIn(true);
+        } else {
+          localStorage.removeItem('token');
+          setLoggedIn(false);
+        }
+      };
 
   return (
     <ThemeProvider theme={theme}>
@@ -99,6 +115,7 @@ function LogInPage() {
             <Form.Control 
             type="email" 
             placeholder="Enter email" 
+            defaultValue={email}
             onChange={(event) => setEmail(event.target.value)}/>
             <Form.Text className="text-muted">
             We'll never share your email with anyone else.
@@ -110,12 +127,21 @@ function LogInPage() {
             <Form.Control 
             type="password" 
             placeholder="Password" 
+            defaultValue={password}
             onChange={(event) => setPassword(event.target.value)}/>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
-            <Form.Check type="checkbox" style={{color:"#fff"}} label="Check me out" />
+            <Form.Check type="checkbox" style={{color:"#fff"}} label="Remember me" />
         </Form.Group>
-        <Button variant="primary" type="submit" style={{backgroundColor:"#FFA500", borderColor: "#FFA500", color:"black", fontWeight:"bold"}}>
+        <Button 
+          variant="primary" 
+          type="submit" 
+          style={{backgroundColor:"#FFA500", 
+          borderColor: "#FFA500", 
+          color:"black", 
+          fontWeight:"bold"}}
+          onClick={handleLogin}
+          >
             Submit
         </Button>
         </Form>
