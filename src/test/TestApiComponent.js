@@ -1,5 +1,5 @@
 import { useContext} from "react"
-import { FilmContext } from "./../App";
+import { FilmContext } from "../App";
 
 export const TestApiComponent = () => {
     const { movieDetails } = useContext(FilmContext);
