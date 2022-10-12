@@ -52,7 +52,7 @@ const requestCommedy = axios.create({
 });
 
 export const apiV3Discover = async (pageId=1) => {
-    const response = await axios.get(`https://api.themoviedb.org/3/discover/movie/?api_key=68fd99303e96482d9eaff74537d24001&page=${pageId}`);
+    const response = await axios.get(`${API_V3_BASE_URL}/discover/movie/?api_key=${API_V3_KEY}&page=${pageId}&append_to_response=videos,images,credits`);
     return response.data;
 }
 
@@ -77,7 +77,7 @@ export const apiV3GetMovieDetails = async (movieId) => {
 }
 
 export const apiV3SearchMovie = async (searchQuery) => {
-    const response = await axios.get(`https://api.themoviedb.org/3/search/movie/?api_key=68fd99303e96482d9eaff74537d24001&query=${searchQuery}`);
+    const response = await axios.get(`${API_V3_BASE_URL}/search/movie/?api_key=${API_V3_KEY}&query=${searchQuery}`);
     return response.data.results;
 }
 
@@ -88,7 +88,7 @@ export const apiV3GetToken = async (movieId) => {
 }
 
 export const apiV3CreateSession = async (tmdbToken) => {
-    const response = await axios.post('https://api.themoviedb.org/3/authentication/session/new?api_key=68fd99303e96482d9eaff74537d24001',{
+    const response = await axios.post(`${API_V3_BASE_URL}/authentication/session/new?api_key=${API_V3_KEY}`,{
         "request_token":tmdbToken
     });
     console.log("response session",response.data);
