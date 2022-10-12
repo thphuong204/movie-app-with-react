@@ -2,7 +2,7 @@
 import React, {  useEffect, useState } from 'react';
 import { Accordion, Col, Container, Row } from 'react-bootstrap';
 import FilmAppBar from '../components/FilmAppBar';
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { apiV3GetMovieDetails } from '../apis/tmdb';
 
 function VideoPlayerPage() {
@@ -24,8 +24,6 @@ function VideoPlayerPage() {
     const movieOverview = movieDetails?.overview || "";
     const videoOriginalArr = movieDetails?.videos?.results ;
     const youtubeKey = videoId ;
-
-    const navigate = useNavigate();
 
   return (
     <div id="video-player">

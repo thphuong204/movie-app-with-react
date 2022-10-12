@@ -6,7 +6,7 @@ import Col from 'react-bootstrap/Col';
 import Image  from 'react-bootstrap/Image';
 import FilmAppBar from '../components/FilmAppBar';
 import './../App.css';
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { apiV3GetMovieDetails } from '../apis/tmdb';
 
 function FilmDetailsPage() {
@@ -29,7 +29,6 @@ function FilmDetailsPage() {
   const castOriginalArr = movieDetails?.credits?.cast
   const videoOriginalArr = movieDetails?.videos?.results
 
-  const navigate = useNavigate();
   return (
     <div id="filmDetails" style={{backgroundColor:"grey"}}>
         <div>
