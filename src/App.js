@@ -3,15 +3,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import {apiV3GetToken,apiV3CreateSession, apiV3SearchMovie, 
   apiV3Discover, 
-  apiV3DiscoverAction, apiV3DiscoverCommedy, apiV3DiscoverDramma, 
-  apiV3GetMovieDetails, getRequestToken } from './apis/tmdb';
+  apiV3DiscoverAction, apiV3DiscoverCommedy, apiV3DiscoverDramma, getRequestToken } from './apis/tmdb';
 
 import { Outlet} from "react-router-dom";
 
 const FilmContext = createContext();
 
 function App() {
-  const [movieDetails, setMovieDetails] = useState(null);
   const [movieArrays, setMovieArrays] = useState(null);
   const [movieActionArrays,setActionArrays] = useState(null);
   const [movieCommedyArrays,setCommedyArrays] = useState(null);
@@ -58,17 +56,6 @@ function App() {
 
 
   useEffect(() => {
-      //useEffect warning error when putting async before useEffect arrow function => fixed
-      async function setMovie() {
-          const movie = await apiV3GetMovieDetails();
-          setMovieDetails(movie);
-      }
-      setMovie();
-  }, [])
-
-   
-
-  useEffect(() => {
     async function askPermission(){
       let tmdbTokenTmp = await getRequestToken();
       setTmdbToken((prev)=> tmdbTokenTmp); 
@@ -92,7 +79,6 @@ function App() {
             <div>
             <FilmContext.Provider 
               value={{ 
-                movieDetails, setMovieDetails, 
                 movieArrays, setMovieArrays,
                 movieActionArrays,setActionArrays,
                 movieCommedyArrays,setCommedyArrays,
