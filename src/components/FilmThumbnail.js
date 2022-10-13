@@ -10,22 +10,22 @@ function FilmThumbnail({movieObject}) {
             id={movieObject?.id}
             className="filmThumbnailCard" 
             sx= {{
-                width:{xs:"200px",md:"300px"},
-                height:{xs:"200px",md:"320px"},
+                width:{xs:"200px",md:"240px"},
+                height:{xs:"360px",md:"440px"},
             }}   
             onClick={() =>{navigate(`/details/${movieObject?.id}`)}}    
         >
              <CardMedia
         component="img"
         sx={{
-            height:{xs:"120px",md:"200px"}
+            height:{xs:"260px",md:"320px"}
         }}
         image={movieObject.poster_path ? `https://image.tmdb.org/t/p/w342/${movieObject.poster_path}` : ""}
         alt="The image is not available right now. Please try again later."
       />
             <CardContent
             sx={{
-                height:{xs:"120px"},
+                height:{xs:"100px",md:"120px"},
                 padding:{xs:"0px"} 
             }}
             >
@@ -34,7 +34,7 @@ function FilmThumbnail({movieObject}) {
                     gutterBottom
                     component="div" 
                     sx={{
-                        height:{xs:"20px", md:"40px"},
+                        height:{xs:"30px",md:"40px"},
                         padding:{xs:"0px", md:"0px"},
                     }}
                 >

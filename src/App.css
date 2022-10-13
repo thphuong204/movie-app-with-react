@@ -129,7 +129,7 @@ body{
     font-weight: bold !important;
     margin: 3px !important;
     text-align: left;
-    height: 40px !important;
+    /* height: 30px !important; */
     display: flex;
     align-items:center;
     justify-content: center;
