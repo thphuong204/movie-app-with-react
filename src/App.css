@@ -125,16 +125,16 @@ body{
 
 .filmThumbnailTitle{
     color: black;
-    font-size: max(10px,1vw) !important;
+    font-size: max(10px,0.8vw) !important;
     font-weight: bold !important;
     margin: 3px !important;
     text-align: left;
-    height: 64px;
+    height: 40px !important;
     display: flex;
-    align-items:flex-end;
+    align-items:center;
     justify-content: center;
+    text-align: center;
     overflow: hidden;
-    white-space: nowrap;
     text-overflow: ellipsis
 }
 

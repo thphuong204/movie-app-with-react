@@ -11,7 +11,7 @@ function FilmThumbnail({movieObject}) {
             className="filmThumbnailCard" 
             sx= {{
                 width:{xs:"200px",md:"300px"},
-                height:{xs:"200px",md:"300px"},
+                height:{xs:"200px",md:"320px"},
             }}   
             onClick={() =>{navigate(`/details/${movieObject?.id}`)}}    
         >
@@ -25,7 +25,7 @@ function FilmThumbnail({movieObject}) {
       />
             <CardContent
             sx={{
-                height:{xs:"80px"},
+                height:{xs:"120px"},
                 padding:{xs:"0px"} 
             }}
             >
@@ -34,8 +34,8 @@ function FilmThumbnail({movieObject}) {
                     gutterBottom
                     component="div" 
                     sx={{
-                        height:{xs:"20px", md:"30px"},
-                        padding:{xs:"0px"},
+                        height:{xs:"20px", md:"40px"},
+                        padding:{xs:"0px", md:"0px"},
                     }}
                 >
                    {movieObject?.title}
