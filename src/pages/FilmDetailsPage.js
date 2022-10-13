@@ -38,10 +38,10 @@ function FilmDetailsPage() {
             <Container fluid className="filmDetailsBody_header px-0">
               <Row style={{width:"100%", margin:"0px", justifyContent:"center"}}>
                 <Col lg={4} md={6} sx={12} style={{padding:"0px"}}>
-                <Image className="filmDetailsBody_image"
-                src={`https://image.tmdb.org/t/p/original/${movieImage}`}
-                alt="The image is not available right now.">
-                </Image >
+                <img className="filmDetailsBody_image"
+                src={movieImage ? `https://image.tmdb.org/t/p/original/${movieImage}` : ""}
+                alt="1">
+                </img >
               </Col>
               </Row>
             </Container>
