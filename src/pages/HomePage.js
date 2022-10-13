@@ -38,6 +38,8 @@ const HomePage = () => {
                    <Pagination
                        page={page}
                        count={10}
+                       showFirstButton 
+                       showLastButton
                        renderItem={(item) => (
                            <PaginationItem
                                style={{
