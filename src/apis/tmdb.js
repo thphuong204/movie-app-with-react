@@ -14,7 +14,7 @@ const requestToken = axios.create ({
 
 const request = axios.create({
     baseURL: API_V3_BASE_URL,
-    timeout: 1000,
+    timeout: 10000,
     params: {
         api_key: API_V3_KEY,
         append_to_response:"videos,images,credits"
