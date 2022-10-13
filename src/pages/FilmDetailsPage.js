@@ -39,7 +39,7 @@ function FilmDetailsPage() {
                 <Col lg={6} sx={12} style={{padding:"0px"}}>
                 <img className="filmDetailsBody_image"
                 src={movieImage ? `https://image.tmdb.org/t/p/w342/${movieImage}` : ""}
-                alt="The image is not available right now.">
+                alt={movieTitle}>
                 </img >
               </Col>
               </Row>
