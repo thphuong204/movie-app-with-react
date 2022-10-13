@@ -11,7 +11,7 @@ function FilmThumbnailsList({movieArrays}) {
     speed:1000,
     slidesToShow: 2,
     slidesToScroll: 1,
-    variableWidth: false
+    variableWidth: true
   };
 
   return (
