@@ -71,7 +71,6 @@ const LogInPage = (props) => {
 
   const handleLogin = () => {
     const token = login(email, password);
-    console.log('token', token)
     if (token) {
       localStorage.setItem('token', JSON.stringify(token));
       setLoggedIn(true);

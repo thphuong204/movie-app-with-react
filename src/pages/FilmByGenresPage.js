@@ -54,7 +54,9 @@ function FilmByGenresPage() {
                }}>
                <Pagination
                    page={page}
-                   count={10}
+                   count={300}
+                   showFirstButton 
+                   showLastButton
                    renderItem={(item) => (
                        <PaginationItem
                            style={{

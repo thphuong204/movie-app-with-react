@@ -2,16 +2,23 @@ import React, { useEffect, useState } from 'react';
 import FilmThumbnailsListCarousel from '../components/FilmThumbnailsListCarousel';
 import FilmAppBar from '../components/FilmAppBar';
 import { Link, useParams } from 'react-router-dom';
-import { apiV3Discover } from '../apis/tmdb';
+import { apiV3Discover, apiV3TotalMovie } from '../apis/tmdb';
 import Pagination from '@mui/material/Pagination';
 import PaginationItem from '@mui/material/PaginationItem';
 
 
 const HomePage = () => {
     const [movieArrays, setMovieArrays] = useState(null);
+    const [totalPage, setTotalPage] = useState(1);
     let {pageId} = useParams();
     let page = parseInt(pageId) || 1;
-    console.log("pageId",pageId);
+
+     async function setTotalMovie() {
+            const totalMovie = await apiV3TotalMovie();
+            setTotalPage(parseInt(totalMovie.total_pages)) ;
+    } 
+    setTotalMovie();
+    console.log("page",totalPage);
 
     useEffect(() => {
         async function setMovieArr() {
@@ -37,14 +44,14 @@ const HomePage = () => {
                    }}>
                    <Pagination
                        page={page}
-                       count={10}
+                       count={300}
                        showFirstButton 
                        showLastButton
                        renderItem={(item) => (
                            <PaginationItem
                                style={{
                                    fontWeight: "bold",
-                                   fontSize: "18px",
+                                   fontSize: "14px",
                                    color:"white"
                                }}
                                component={Link}

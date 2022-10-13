@@ -1,8 +1,8 @@
 
 import React, {  useEffect, useState } from 'react';
-import { Accordion, Col, Container, Row } from 'react-bootstrap';
+import {  Col, Container, Row } from 'react-bootstrap';
 import FilmAppBar from '../components/FilmAppBar';
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { apiV3GetMovieDetails } from '../apis/tmdb';
 
 function VideoPlayerPage() {
@@ -18,11 +18,8 @@ function VideoPlayerPage() {
         setMovie();
     }, [movieId])
 
-    console.log("movieDetails",movieDetails);
 
     let movieTitle = movieDetails?.title || "";
-    const movieOverview = movieDetails?.overview || "";
-    const videoOriginalArr = movieDetails?.videos?.results ;
     const youtubeKey = videoId ;
 
   return (

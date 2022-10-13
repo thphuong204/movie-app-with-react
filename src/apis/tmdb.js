@@ -51,6 +51,12 @@ const request = axios.create({
 //     }
 // });
 
+export const apiV3TotalMovie = async (movieId) => {
+    const response = await request.get(`discover/movie`);
+    return response.data;
+}
+
+
 export const apiV3Discover = async (pageId=1) => {
     const response = await axios.get(`${API_V3_BASE_URL}/discover/movie?api_key=${API_V3_KEY}&page=${pageId}`);
     return response.data;
