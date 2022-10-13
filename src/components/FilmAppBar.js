@@ -153,11 +153,13 @@ function FilmAppBar() {
       open={isMenuOpen}
       onClose={handleMoreClose}
     >
-      <MenuItem>{`Username: ${tokenString}`}</MenuItem>
-      <MenuItem onClick={()=>{
-        logOut();
-        navigate('/login')
-      }}>Log out</MenuItem>
+      <MenuItem onClick={()=> navigate('/home')}>{`Username: ${tokenString}`}</MenuItem>
+      <MenuItem 
+          onClick={()=>{
+            logOut();
+            navigate('/login')
+          }}>Log out
+      </MenuItem>
     </Menu>
   );
 
