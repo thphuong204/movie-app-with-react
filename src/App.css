@@ -278,3 +278,10 @@ font-weight: bold;
 .wrapper {
   width:100%;
 }
+
+.MuiPagination-ul{
+  display:flex;
+  flex-wrap: nowrap !important;
+  align-content: center;
+  justify-content: center;
+}

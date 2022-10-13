@@ -6,6 +6,7 @@ import FilmGenresResults from '../components/FilmGenresResults';
 import Pagination from '@mui/material/Pagination';
 import PaginationItem from '@mui/material/PaginationItem';
 
+
 function FilmByGenresPage() {
   let {pageId}= useParams();
   let page = parseInt(pageId) || 1;
@@ -49,7 +50,7 @@ function FilmByGenresPage() {
      <div className="pagination-item"
                style={{
                    display: "flex",
-                   justifyContent: 'center',
+                   justifyContent: "center",
                    marginTop: "20px",
                }}>
                <Pagination
@@ -61,8 +62,8 @@ function FilmByGenresPage() {
                        <PaginationItem
                            style={{
                                fontWeight: "bold",
-                               fontSize: "18px",
-                               color:"white"
+                               fontSize: "16px",
+                               color:"white",
                            }}
                            component={Link}
                            to={`/genres/${item.page || 1}`}
