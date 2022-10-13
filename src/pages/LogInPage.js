@@ -98,11 +98,11 @@ const LogInPage = (props) => {
             </IconButton>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             </Typography>
-            <Button color="inherit" style={{
+            {/* <Button color="inherit" style={{
               backgroundColor: "#FFA500", borderColor: "#FFA500",
               fontFamily: "Segoe UI, Roboto, Oxygen,Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue"
               , fontSize: "16px", color: "black", fontWeight: "bold"
-            }}>Sign up</Button>
+            }}>Sign up</Button> */}
           </Toolbar>
         </AppBar>
       </div>
