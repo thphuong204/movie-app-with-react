@@ -44,48 +44,6 @@ function VideoPlayerPage() {
                 </Col>
             </Row>
         </Container>
-        <Container  className="selection-group" fluid>
-            <Row>
-                <Col className="selection-screen">
-                    <Accordion>
-                        <Accordion.Item eventKey="0" className="accordion-item">
-                            <Accordion.Header >
-                                <Container className="selection_season" style={{backgroundColor:"black"}}>
-                                    {`${movieTitle}  - Overview`}
-                                </Container>
-                            </Accordion.Header>
-                            <Accordion.Body>
-                                    <ul>
-                                        <li className="selection_ep-name">{movieOverview}</li>
-                                    </ul>
-                            </Accordion.Body>
-                        </Accordion.Item>
-                        <Accordion.Item eventKey="1" className="accordion-item">
-                            <Accordion.Header >
-                                <Container className="selection_season" style={{backgroundColor:"black"}}>Episode</Container>
-                            </Accordion.Header>
-                            <Accordion.Body>
-                                    <ul>
-                                        {videoOriginalArr?.slice(0,2).map((videoObject,i)=>{
-                                            return (
-                                                <div key={i}>
-                                                <Link  
-                                                    className="selection_ep-name"
-                                                    to={`/details/:movieId/videoplayer/${videoObject?.key}`}
-                                                // onClick={ () => {navigate(`/details/:movieId/videoplayer/${videoObject?.key}`)}}
-                                                >
-                                                        {videoObject?.name}
-                                                </Link>
-                                                </div>
-                                            )
-                                        })}
-                                    </ul>
-                            </Accordion.Body>
-                        </Accordion.Item>
-                    </Accordion>
-                </Col>
-            </Row>
-        </Container>
     </div>
   )
 }
