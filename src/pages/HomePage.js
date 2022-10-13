@@ -19,6 +19,8 @@ const HomePage = () => {
     } 
     setTotalMovie();
 
+    console.log("totalPage", totalPage);
+    
     useEffect(() => {
         async function setMovieArr() {
           const movieArr = await apiV3Discover(pageId);
