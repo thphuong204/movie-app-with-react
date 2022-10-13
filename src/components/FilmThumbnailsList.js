@@ -32,7 +32,7 @@ function FilmThumbnailsList({movieArrays}) {
             fontWeight:"bold"
           }}
         >
-        There are no results that match your search</div>
+        There are no results yet</div>
       }
        
    
