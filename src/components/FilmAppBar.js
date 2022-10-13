@@ -6,14 +6,11 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
-import Badge from '@mui/material/Badge';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import AccountCircle from '@mui/icons-material/AccountCircle';
-import MailIcon from '@mui/icons-material/Mail';
-import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 // import FavoriteIcon from '@mui/icons-material/Favorite';
 import "./../App.css";
@@ -107,6 +104,8 @@ function FilmAppBar() {
   const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+  const [tokenString] = React.useState(()=> JSON.parse(localStorage.getItem('token')).username);
+  
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -154,7 +153,7 @@ function FilmAppBar() {
       open={isMenuOpen}
       onClose={handleMoreClose}
     >
-      <MenuItem onClick={handleMoreClose}>Profile</MenuItem>
+      <MenuItem>{`Username: ${tokenString}`}</MenuItem>
       <MenuItem onClick={()=>{
         logOut();
         navigate('/login')
@@ -179,15 +178,15 @@ function FilmAppBar() {
       open={isMobileMenuOpen}
       onClose={handleMobileMoreClose}
     >
-      <MenuItem>
+      {/* <MenuItem>
         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
           <Badge badgeContent={4} color="error">
             <MailIcon />
           </Badge>
         </IconButton>
         <p>Messages</p>
-      </MenuItem>
-      <MenuItem>
+      </MenuItem> */}
+      {/* <MenuItem>
         <IconButton
           size="large"
           aria-label="show 17 new notifications"
@@ -198,8 +197,8 @@ function FilmAppBar() {
           </Badge>
         </IconButton>
         <p>Notifications</p>
-      </MenuItem>
-      <MenuItem onClick={handleProfileAccountOpen}>
+      </MenuItem> */}
+      <MenuItem onClick={handleProfileAccountOpen} style={{display:"flex", alignItems:"center"}}>
         <IconButton
           size="large"
           aria-label="account of current user"
@@ -209,7 +208,7 @@ function FilmAppBar() {
         >
           <AccountCircle />
         </IconButton>
-        <p>Profile</p>
+        <div style={{display:"flex", alignItems:"center"}}>Profile</div>
       </MenuItem>
     </Menu>
   );
@@ -287,7 +286,7 @@ function FilmAppBar() {
           </Search>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+            {/* <IconButton size="large" aria-label="show 4 new mails" color="inherit">
               <Badge badgeContent={4} color="error">
                 <MailIcon />
               </Badge>
@@ -300,7 +299,7 @@ function FilmAppBar() {
               <Badge badgeContent={17} color="error">
                 <NotificationsIcon />
               </Badge>
-            </IconButton>
+            </IconButton> */}
             <IconButton
               size="large"
               edge="end"
