@@ -168,7 +168,7 @@ body{
   margin-bottom: 50px;
 }
 #filmDetails .filmDetailsBody .filmDetailsBody_header .filmDetailsBody_image{
-  width: 100% !important;
+  width: min(300px,100%) !important;
   height:300px;
 }
 
