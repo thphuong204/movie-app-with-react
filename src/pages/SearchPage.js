@@ -5,7 +5,6 @@ import FilmThumbnailsListCarousel from '../components/FilmThumbnailsListCarousel
 
 function SearchPage() {
     const { searchResultsArray} = useContext(FilmContext);
-    console.log("searchResultsArray",searchResultsArray)
 
   return (
     <div id="search-page">

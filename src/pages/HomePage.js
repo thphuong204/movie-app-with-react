@@ -18,7 +18,6 @@ const HomePage = () => {
             setTotalPage(parseInt(totalMovie.total_pages)) ;
     } 
     setTotalMovie();
-    console.log("page",totalPage);
 
     useEffect(() => {
         async function setMovieArr() {
@@ -28,9 +27,7 @@ const HomePage = () => {
         setMovieArr();
       },[pageId]);
       
-    console.log(
-        "movieArrays",movieArrays
-    )
+    
 
     function Content({ handlePageArrayData }) {
     
